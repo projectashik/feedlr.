@@ -1,0 +1,114 @@
+.fui-btn {
+  @apply inline-flex font-medium;
+  @apply relative cursor-pointer inline-flex items-center space-x-2 text-center border border-solid border-transparent transition ease-out duration-200 outline-none;
+  @apply rounded;
+  @apply px-3 py-2 justify-center;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.fui-btn:focus {
+  @apply outline-none;
+}
+
+.fui-btn--w-full {
+  @apply w-full flex items-center justify-center;
+}
+
+.fui-btn:disabled {
+  @apply opacity-75 cursor-not-allowed;
+  pointer-events: none;
+}
+
+/*
+  Button varients
+*/
+.fui-btn-primary {
+  @apply text-white bg-brand-800 hover:bg-brand-600;
+  @apply dark:hover:bg-brand-900;
+}
+.dark .fui-btn-primary {
+  text-shadow: 0px 0px 4px rgba(38 111 78 / 50%);
+}
+
+.fui-btn-default {
+  @apply text-gray-500 bg-white border-gray-200 hover:text-gray-600;
+  @apply hover:bg-white hover:border-gray-200;
+}
+
+[class~='dark'] .fui-btn-default {
+  @apply border-gray-600 bg-gray-600 text-dark-200;
+  @apply hover:bg-gray-700;
+}
+
+.dark .fui-btn-default {
+  text-shadow: 0px 0px 4px rgba(31 31 31 / 50%);
+}
+
+.fui-btn-outline {
+  @apply border text-gray-500 bg-transparent border-gray-200 border-solid hover:bg-white hover:text-gray-600 hover:border-gray-600;
+}
+
+[class~='dark'] .fui-btn-outline {
+  @apply text-white border-dark-500 hover:text-dark-600 hover:border-white;
+}
+
+.fui-btn-link {
+  @apply bg-transparent text-brand-800 hover:bg-brand-900 hover:bg-opacity-25;
+  box-shadow: none;
+}
+.fui-btn-text {
+  @apply text-gray-500 bg-transparent hover:bg-gray-200 hover:bg-opacity-25;
+  @apply dark:text-dark-300 dark:hover:bg-dark-600;
+  box-shadow: none;
+}
+.fui-btn--danger {
+  @apply border-red-500 text-red-500;
+}
+
+.dark .fui-btn--danger {
+  text-shadow: 0px 0px 4px rgba(229, 62, 62 / 50%);
+}
+
+.fui-btn-primary.fui-btn--danger {
+  @apply bg-red-500 text-white;
+  @apply hover:bg-red-600 hover:border-red-600;
+}
+.fui-btn-default.fui-btn--danger,
+.fui-btn-secondary.fui-btn--danger,
+.fui-btn-outline.fui-btn--danger,
+.fui-btn-dashed.fui-btn--danger,
+.fui-btn-link.fui-btn--danger,
+.fui-btn-text.fui-btn--danger {
+  @apply hover:bg-red-600 hover:text-white hover:border-red-600;
+}
+
+/* 
+  Animation for icon
+*/
+.fui-btn--anim--spin {
+  @apply stroke-current;
+  animation-name: spin;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  /* transform: rotate(3deg); */
+  /* transform: rotate(0.3rad);/ */
+  /* transform: rotate(3grad); */
+  /* transform: rotate(.03turn);  */
+  transform-origin: center center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[class~='dark'] .fui-btn-text {
+  @apply text-dark-300 hover:bg-dark-600;
+  box-shadow: none;
+}

@@ -1,0 +1,135 @@
+.fui-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.fui-divider-vertical {
+  @apply bg-gray-200;
+  width: 1px;
+  height: inherit;
+}
+[class~='dark'] .fui-divider-vertical {
+  @apply bg-dark-500;
+}
+
+.fui-divider-vertical.fui-divider--light {
+  @apply bg-gray-100;
+}
+
+[class~='dark'] .fui-divider-vertical.fui-divider--light {
+  @apply bg-dark-600;
+}
+
+.fui-divider--no-text {
+  @apply border-gray-200;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+[class~='dark'] .fui-divider--no-text {
+  @apply border-dark-500;
+}
+.fui-divider > span {
+  @apply text-sm;
+  @apply text-gray-300;
+  display: inline-block;
+  padding: 0 1em;
+}
+[class~='dark'] .fui-divider > span {
+  @apply text-dark-400;
+}
+
+.fui-divider--left:before {
+  @apply border-gray-200;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  top: 50%;
+  content: '';
+  position: relative;
+  display: inline-block;
+  width: 5%;
+}
+
+[class~='dark'] .fui-divider--left:before,
+[class~='dark'] .fui-divider--left:after,
+[class~='dark'] .fui-divider--right:before,
+[class~='dark'] .fui-divider--right:after,
+[class~='dark'] .fui-divider--center:before,
+[class~='dark'] .fui-divider--center:after {
+  @apply border-dark-500;
+}
+
+.fui-divider--left:after {
+  @apply border-gray-200;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  top: 50%;
+  content: '';
+  position: relative;
+  display: inline-block;
+  width: 95%;
+}
+
+.fui-divider--right:before {
+  @apply border-gray-200;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  top: 50%;
+  content: '';
+  position: relative;
+  display: inline-block;
+  width: 95%;
+}
+
+.fui-divider--right:after {
+  @apply border-gray-200;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  top: 50%;
+  content: '';
+  position: relative;
+  display: inline-block;
+  width: 5%;
+}
+
+.fui-divider--center:before,
+.fui-divider--center:after {
+  @apply border-gray-200;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  top: 50%;
+  content: '';
+  position: relative;
+  display: inline-block;
+  width: 50%;
+}
+
+.fui-divider--light.fui-divider--left:before,
+.fui-divider--light.fui-divider--left:after,
+.fui-divider--light.fui-divider--right:before,
+.fui-divider--light.fui-divider--right:after,
+.fui-divider--light.fui-divider--center:before,
+.fui-divider--light.fui-divider--center:after,
+.fui-divider--light.fui-divider--no-text {
+  @apply border-gray-100;
+}
+
+[class~='dark'] .fui-divider--light.fui-divider--left:before,
+[class~='dark'] .fui-divider--light.fui-divider--left:after,
+[class~='dark'] .fui-divider--light.fui-divider--right:before,
+[class~='dark'] .fui-divider--light.fui-divider--right:after,
+[class~='dark'] .fui-divider--light.fui-divider--center:before,
+[class~='dark'] .fui-divider--light.fui-divider--center:after,
+[class~='dark'] .fui-divider--light.fui-divider--no-text {
+  @apply border-dark-600;
+}
+
+.fui-divider--light.fui-divider > span {
+  @apply text-gray-200;
+}
+
+[class~='dark'] .fui-divider--light.fui-divider > span {
+  @apply text-dark-800;
+}

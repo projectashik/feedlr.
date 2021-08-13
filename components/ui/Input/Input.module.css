@@ -1,0 +1,62 @@
+.fui-input-container {
+  @apply relative;
+}
+
+.fui-input {
+  @apply block box-border pl-3 pr-3 py-2 w-full rounded-md shadow-sm border border-solid transition-all;
+  @apply bg-white text-input-value-light border-input-border-light;
+  @apply focus:ring-input-border-focus-light focus:border-input-border-focus-light focus:outline-none;
+
+  /* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0); */
+  font-family: inherit;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+[class~='dark'] .fui-input {
+  @apply bg-transparent text-input-value-dark border-input-border-dark;
+  @apply focus:border-input-border-focus-dark focus:ring-input-border-focus-dark;
+}
+
+.fui-input:focus {
+  box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.1);
+}
+
+.fui-input--error {
+  @apply border-red-500;
+}
+
+.fui-input--borderless {
+  @apply border-transparent shadow-none;
+}
+
+.fui-input-actions-container {
+  @apply absolute inset-y-0 right-0 pl-3 pr-1 flex items-center;
+}
+
+/*
+  Input sizes
+*/
+
+.fui-input--tiny {
+  @apply px-2.5 py-1.5 text-xs;
+}
+.fui-input--small {
+  @apply px-3 py-2 text-sm leading-4;
+}
+.fui-input--medium {
+  @apply px-4 py-2;
+}
+.fui-input--large {
+  @apply px-4 py-2 text-base;
+}
+.fui-input--xlarge {
+  @apply px-6 py-3 text-base;
+}
+
+/*
+  Input icon
+*/
+
+.fui-input--with-icon {
+  @apply pl-10;
+}

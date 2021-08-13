@@ -1,0 +1,136 @@
+.fui-radio-fieldset {
+  @apply border-none p-0 m-0;
+}
+
+.fui-radio-container {
+  @apply relative cursor-pointer flex p-0 py-2 border-none;
+}
+
+.fui-radio-container--card {
+  @apply p-4 border border-solid border-gray-200;
+}
+
+[class~='dark'] .fui-radio-container--card {
+  @apply border-gray-500;
+}
+
+.fui-radio-container--card--active {
+  @apply bg-brand-100 bg-opacity-20 border-brand-200 z-10;
+}
+
+[class~='dark'] .fui-radio-container--card--active {
+  @apply border-brand-200;
+}
+
+.fui-radio-container--card:first-child {
+  @apply rounded-tl-md rounded-tr-md;
+}
+
+.fui-radio-container--card:last-child {
+  @apply rounded-bl-md rounded-br-md;
+}
+
+.fui-radio-label {
+  @apply flex flex-row cursor-pointer;
+}
+
+.fui-radio-label-text {
+  @apply block text-sm font-medium;
+}
+
+[class~='dark'] .fui-radio-label-text {
+  @apply text-white;
+}
+
+.fui-radio-label-text .fui-radio__label-text-before,
+.fui-radio-label-text .fui-radio__label-text-after {
+  @apply text-gray-400;
+}
+
+[class~='dark'] .fui-radio-label-text,
+[class~='dark'] .fui-radio__label-text-before {
+  @apply text-gray-300;
+}
+
+.fui-radio-label-description {
+  @apply block text-sm text-gray-400;
+}
+
+[class~='dark'] .fui-radio-label-description {
+  @apply text-gray-300;
+}
+
+.fui-radio {
+  @apply h-4 w-4 ml-0 mr-3.5 rounded-2xl border border-solid transition-all;
+
+  @apply text-brand-600 cursor-pointer border-gray-500;
+  @apply focus:ring-brand-500 hover:border-brand-700 focus:outline-none;
+}
+
+[class~='dark'] .fui-radio {
+  @apply bg-transparent hover:border-brand-700;
+}
+
+.fui-radio:checked {
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.fui-radio:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+}
+
+.fui-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  background-origin: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.fui-radio-group-contents {
+  @apply rounded-md -space-y-px;
+}
+
+[class~='dark'] .fui-radio-group-contents {
+  @apply bg-transparent;
+}
+
+/*
+  Label sizes
+*/
+
+.fui-radio-container--tiny .fui-radio-label,
+.fui-radio-container--tiny .fui-radio-label-text,
+.fui-radio-container--tiny .fui-radio-label-description {
+  @apply text-xs;
+}
+.fui-radio-container--small .fui-radio-label,
+.fui-radio-container--small .fui-radio-label-text,
+.fui-radio-container--small .fui-radio-label-description {
+  @apply text-sm;
+}
+.fui-radio-container--medium .fui-radio-label,
+.fui-radio-container--medium .fui-radio-label-text,
+.fui-radio-container--medium .fui-radio-label-description {
+  @apply text-sm;
+}
+.fui-radio-container--large .fui-radio-label,
+.fui-radio-container--large .fui-radio-label-text,
+.sbui-radio-container--large .sbui-radio-label-description {
+  @apply text-base;
+}
+.sbui-radio-container--xlarge .sbui-radio-label,
+.sbui-radio-container--xlarge .sbui-radio-label-text,
+.sbui-radio-container--xlarge .sbui-radio-label-description {
+  @apply text-base;
+}

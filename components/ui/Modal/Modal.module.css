@@ -1,0 +1,147 @@
+/* 
+ Modal animations imported first as so placement styles are not affected.
+*/
+
+/* overlay animation */
+.fui-modal-overlay--enter {
+  @apply ease-out duration-200;
+}
+.fui-modal-overlay--enterFrom {
+  @apply opacity-0;
+}
+.fui-modal-overlay--enterTo {
+  @apply opacity-100;
+}
+.fui-modal-overlay--leave {
+  @apply ease-in duration-150;
+}
+.fui-modal-overlay--leaveFrom {
+  @apply opacity-100;
+}
+.fui-modal-overlay--leaveTo {
+  @apply opacity-0;
+}
+
+/* modal animation */
+.fui-modal--enter {
+  @apply ease-out duration-150 delay-150;
+}
+.fui-modal--enterFrom {
+  @apply opacity-0 translate-y-4 sm:translate-y-0 transform sm:scale-95;
+}
+.fui-modal--enterTo {
+  @apply opacity-100 translate-y-0 transform sm:scale-100;
+}
+.fui-modal--leave {
+  @apply ease-in duration-150;
+}
+.fui-modal--leaveFrom {
+  @apply opacity-100 translate-y-0 transform sm:scale-100;
+}
+.fui-modal--leaveTo {
+  @apply opacity-0 translate-y-4 sm:translate-y-0 transform sm:scale-95;
+}
+
+.fui-modal-container {
+  @apply fixed z-50 inset-0;
+}
+
+.fui-modal-flex-container {
+  @apply flex items-end justify-center min-h-screen pt-4 px-6 pb-20 text-center sm:block sm:p-0;
+}
+
+.fui-modal-overlay-container {
+  @apply fixed inset-0 transition-opacity;
+}
+
+.fui-modal-overlay {
+  @apply absolute inset-0 bg-gray-900 opacity-75;
+}
+
+.fui-modal-div-trick {
+  @apply hidden sm:inline-block sm:align-middle sm:h-screen;
+}
+
+.fui-modal {
+  @apply inline-block w-full bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all align-middle;
+  /* border */
+  @apply border-gray-400 border border-solid max-h-screen overflow-auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[class~='dark'] .fui-modal {
+  @apply bg-dark-800;
+  @apply border-gray-600;
+}
+
+.fui-modal--tiny {
+  @apply sm:align-middle sm:w-full sm:max-w-xs;
+}
+
+.fui-modal--small {
+  @apply sm:align-middle sm:w-full sm:max-w-sm;
+}
+
+.fui-modal--medium {
+  @apply sm:align-middle sm:w-full sm:max-w-lg;
+}
+
+.fui-modal--large {
+  @apply sm:align-middle sm:w-full max-w-xl;
+}
+
+.fui-modal-content {
+  @apply px-6 pt-5 pb-5 sm:p-6;
+}
+
+.fui-modal-footer {
+  @apply sm:flex sm:flex-row justify-end;
+}
+
+.fui-modal-footer--with-bg {
+  @apply bg-gray-50  px-6 py-3 sm:px-6 sm:flex sm:flex-row justify-end;
+}
+
+[class~='dark'] .fui-modal-footer--with-bg {
+  @apply bg-dark-600;
+}
+
+.fui-modal-icon-container {
+  @apply mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full sm:mx-0 sm:h-10 sm:w-10;
+}
+
+.fui-modal-icon-container--danger {
+  @apply text-red-600 bg-red-600 bg-opacity-20;
+}
+
+.fui-modal-icon-container--warning {
+  @apply text-yellow-500 bg-yellow-500 bg-opacity-20;
+}
+
+.fui-modal-icon-container--success {
+  @apply text-brand-500 bg-brand-500 bg-opacity-20;
+}
+
+.fui-modal-close-container {
+  @apply absolute right-1 top-1;
+}
+
+.fui-modal-close-container button {
+  @apply text-gray-300;
+  @apply hover:text-gray-400;
+  @apply hover:text-dark-300;
+
+  @apply hover:bg-transparent;
+}
+
+[class~='dark'] .fui-modal-close-container button {
+  @apply text-dark-400;
+}
+
+.fui-sidepanel__trigger {
+  @apply border-none bg-transparent p-0 focus:ring-0;
+}

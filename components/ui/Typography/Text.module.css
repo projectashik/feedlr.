@@ -1,0 +1,80 @@
+.fui-typography-text {
+  @apply text-typography-body-light;
+}
+
+[class~='dark'] .fui-typography-text {
+  @apply text-typography-body-dark;
+}
+
+.fui-typography-text-small {
+  @apply text-sm;
+}
+
+.fui-typography-text-secondary {
+  @apply text-typography-body-secondary-light;
+}
+
+[class~='dark'] .fui-typography-text-secondary {
+  @apply text-typography-body-secondary-dark;
+}
+
+.fui-typography-text-success {
+  @apply text-green-500;
+}
+
+.fui-typography-text-warning {
+  @apply text-yellow-500;
+}
+
+.fui-typography-text-danger {
+  @apply text-red-500;
+}
+.fui-typography-text-disabled {
+  @apply text-gray-300;
+  /* color: rgba(0,0,0,.25); */
+  cursor: not-allowed;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+[class~='dark'] .fui-typography-text-disabled {
+  @apply text-gray-400;
+}
+
+.fui-typography-text-underline {
+  @apply underline;
+}
+
+.fui-typography-text-strikethrough {
+  @apply line-through;
+}
+
+.fui-typography-text strong {
+  @apply text-sm;
+}
+
+mark.fui-typography-text {
+  padding: 0;
+  background-color: #ffe58f;
+}
+
+code.fui-typography-text {
+  /* margin: 0 .2em; */
+  padding: 0.2em 0.4em 0.1em;
+  /* font-size: 85%; */
+  background: hsla(0, 0%, 58.8%, 0.1);
+  border: 1px solid hsla(0, 0%, 39.2%, 0.2);
+  border-radius: 3px;
+}
+
+kbd.fui-typography-text {
+  /* margin: 0 .2em; */
+  padding: 0.15em 0.4em 0.1em;
+  /* font-size: 90%; */
+  background: hsla(0, 0%, 58.8%, 0.06);
+  border: solid hsla(0, 0%, 39.2%, 0.2);
+  border-width: 1px 1px 2px;
+  border-radius: 3px;
+}

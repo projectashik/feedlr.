@@ -1,16 +1,18 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  @apply bg-brand-500;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+::selection {
+  color: white;
+  @apply bg-brand-500;
 }
 
-* {
-  box-sizing: border-box;
+html {
+  font-family: 'DM Sans', sans-serif;
 }

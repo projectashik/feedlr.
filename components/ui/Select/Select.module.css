@@ -1,0 +1,81 @@
+.fui-select-container {
+  @apply relative;
+}
+
+.fui-select {
+  @apply block w-full bg-white pl-3 pr-10 py-2 text-sm rounded-md shadow-sm transition-all;
+
+  @apply text-input-value-light border border-solid border-input-border-light;
+  @apply focus:ring-input-border-focus-light focus:border-input-border-focus-light focus:outline-none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-overflow: '';
+  transition: box-shadow 0.3s ease-in-out;
+  background-image: none;
+}
+
+[class~='dark'] .fui-select {
+  @apply bg-transparent text-input-value-dark border-input-border-dark;
+  @apply focus:border-input-border-focus-dark focus:ring-input-border-focus-dark;
+}
+
+.fui-select option {
+  @apply bg-white text-gray-800;
+}
+
+.fui-select:focus {
+  box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.1);
+}
+
+.fui-select--error {
+  @apply border-red-500 dark:border-red-500;
+}
+
+.fui-select--borderless {
+  @apply border-transparent shadow-none;
+}
+
+/*
+  Select sizes
+*/
+
+.fui-select--tiny {
+  @apply px-2.5 py-1.5 text-xs;
+}
+.fui-select--small {
+  @apply px-3 py-2 text-sm leading-4;
+}
+.fui-select--medium {
+  @apply px-4 py-2 text-sm;
+}
+.fui-select--large {
+  @apply px-4 py-2 text-base;
+}
+.fui-select--xlarge {
+  @apply px-6 py-3 text-base;
+}
+
+.fui-select-actions-container {
+  @apply absolute inset-y-0 right-0 pl-3 pr-1 mr-5 flex items-center;
+}
+
+/*
+  Select icon
+*/
+
+.fui-select--with-icon {
+  @apply pl-10;
+}
+
+/*
+  Select Chevron
+*/
+
+.fui-select-chevron-container {
+  @apply absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none;
+}
+
+.fui-select-chevron {
+  @apply h-5 w-5 text-gray-400;
+}

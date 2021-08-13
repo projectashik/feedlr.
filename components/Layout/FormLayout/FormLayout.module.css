@@ -1,0 +1,118 @@
+.fui-formlayout {
+  @apply grid gap-1;
+}
+
+.fui-formlayout--flex {
+  @apply flex justify-between;
+}
+
+.fui-formlayout--flex-right div:last-child {
+  text-align: right;
+}
+
+.fui-formlayout--flex-left div:first-child {
+  order: 2;
+}
+
+.fui-formlayout--flex-left div:last-child {
+  order: 1;
+}
+
+.fui-formlayout--non-responsive {
+  @apply grid grid-cols-12 gap-4;
+}
+
+.fui-formlayout--responsive {
+  @apply md:grid md:grid-cols-12 md:gap-1;
+}
+
+.fui-formlayout__label-container-horizontal {
+  @apply justify-between col-span-12;
+}
+
+.fui-formlayout__label-container-vertical {
+  @apply col-span-4;
+}
+
+.fui-formlayout__content-container-horizontal {
+  @apply col-span-12;
+}
+
+.fui-formlayout__content-container-vertical {
+  @apply col-span-8;
+}
+
+.fui-formlayout__content-container-vertical--align-right {
+  @apply text-right;
+}
+
+.fui-formlayout__label {
+  @apply block text-input-label-light;
+}
+
+[class~='dark'] .fui-formlayout__label {
+  @apply text-input-label-dark;
+}
+
+.fui-formlayout__label-opt,
+.fui-formlayout__label .fui-formlayout__label-before,
+.fui-formlayout__label .fui-formlayout__label-after {
+  @apply text-gray-400;
+}
+
+[class~='dark'] .fui-formlayout__label-opt,
+[class~='dark'] .fui-formlayout__label .fui-formlayout__label-before,
+[class~='dark'] .fui-formlayout__label .fui-formlayout__label-after {
+  @apply text-gray-300;
+}
+
+.fui-formlayout__error {
+  @apply mt-2 text-red-500;
+}
+
+.fui-formlayout__description {
+  @apply mt-2 text-sm text-gray-400;
+}
+
+[class~='dark'] .fui-formlayout__description {
+  @apply text-gray-300;
+}
+
+/* .fui-formlayout__content-container--width-25 {
+  width: 
+} */
+
+/*
+  Layout sizes
+*/
+
+.fui-formlayout--tiny .fui-formlayout__label,
+.fui-formlayout--tiny .fui-formlayout__label-opt,
+.fui-formlayout--tiny .fui-formlayout__error,
+.fui-formlayout--tiny .fui-formlayout__description {
+  @apply text-xs;
+}
+.fui-formlayout--small .fui-formlayout__label,
+.fui-formlayout--small .fui-formlayout__label-opt,
+.fui-formlayout--small .fui-formlayout__error,
+.fui-formlayout--small .fui-formlayout__description {
+  @apply text-sm leading-4;
+}
+.fui-formlayout--medium .fui-formlayout__label,
+.fui-formlayout--medium .fui-formlayout__label-opt,
+.fui-formlayout--medium .fui-formlayout__error,
+.fui-formlayout--medium .fui-formlayout__description {
+  @apply text-base;
+}
+.fui-formlayout--large .fui-formlayout__label,
+.fui-formlayout--large .fui-formlayout__label-opt,
+.fui-formlayout--large .fui-formlayout__error,
+.fui-formlayout--large .fui-formlayout__description {
+  @apply text-base;
+}
+.fui-formlayout--xlarge .fui-formlayout__label,
+.fui-formlayout--xlarge .fui-formlayout__label-opt,
+.fui-formlayout--xlarge .fui-formlayout__error,
+.fui-formlayout--xlarge .fui-formlayout__description {
+  @apply text-base;
+}

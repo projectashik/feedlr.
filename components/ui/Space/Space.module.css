@@ -1,0 +1,397 @@
+.fui-space {
+  @apply flex;
+}
+
+.fui-space-row {
+  @apply flex flex-row items-center;
+}
+
+.fui-space-col {
+  @apply flex flex-col;
+}
+
+.fui-space-y-0 {
+  @apply space-y-0;
+}
+/* .fui-space-y-0.5 {
+  @apply space-y-0.5;
+} */
+.fui-space-y-1 {
+  @apply space-y-1;
+}
+/* .fui-space-y-1.5 {
+  @apply space-y-1.5;
+} */
+.fui-space-y-2 {
+  @apply space-y-2;
+}
+/* .fui-space-y-2.5 {
+  @apply space-y-2.5;
+} */
+.fui-space-y-3 {
+  @apply space-y-3;
+}
+/* .fui-space-y-3.5 {
+  @apply space-y-3.5;
+} */
+.fui-space-y-4 {
+  @apply space-y-4;
+}
+.fui-space-y-5 {
+  @apply space-y-5;
+}
+.fui-space-y-6 {
+  @apply space-y-6;
+}
+.fui-space-y-7 {
+  @apply space-y-7;
+}
+.fui-space-y-8 {
+  @apply space-y-8;
+}
+.fui-space-y-9 {
+  @apply space-y-9;
+}
+.fui-space-y-10 {
+  @apply space-y-10;
+}
+.fui-space-y-11 {
+  @apply space-y-11;
+}
+.fui-space-y-12 {
+  @apply space-y-12;
+}
+.fui-space-y-14 {
+  @apply space-y-14;
+}
+.fui-space-y-16 {
+  @apply space-y-16;
+}
+.fui-space-y-20 {
+  @apply space-y-20;
+}
+.fui-space-y-24 {
+  @apply space-y-24;
+}
+.fui-space-y-28 {
+  @apply space-y-28;
+}
+.fui-space-y-32 {
+  @apply space-y-32;
+}
+.fui-space-y-36 {
+  @apply space-y-36;
+}
+.fui-space-y-40 {
+  @apply space-y-40;
+}
+.fui-space-y-44 {
+  @apply space-y-44;
+}
+.fui-space-y-48 {
+  @apply space-y-48;
+}
+.fui-space-y-52 {
+  @apply space-y-52;
+}
+.fui-space-y-56 {
+  @apply space-y-56;
+}
+.fui-space-y-60 {
+  @apply space-y-60;
+}
+.fui-space-y-64 {
+  @apply space-y-64;
+}
+.fui-space-y-72 {
+  @apply space-y-72;
+}
+.fui-space-y-80 {
+  @apply space-y-80;
+}
+.fui-space-y-96 {
+  @apply space-y-96;
+}
+.fui-space-y-px {
+  @apply space-y-px;
+}
+.fui-space-x-0 {
+  @apply space-x-0;
+}
+.fui-space-x-1 {
+  @apply space-x-1;
+}
+.fui-space-x-2 {
+  @apply space-x-2;
+}
+.fui-space-x-3 {
+  @apply space-x-3;
+}
+.fui-space-x-4 {
+  @apply space-x-4;
+}
+.fui-space-x-5 {
+  @apply space-x-5;
+}
+.fui-space-x-6 {
+  @apply space-x-6;
+}
+.fui-space-x-7 {
+  @apply space-x-7;
+}
+.fui-space-x-8 {
+  @apply space-x-8;
+}
+.fui-space-x-9 {
+  @apply space-x-9;
+}
+.fui-space-x-10 {
+  @apply space-x-10;
+}
+.fui-space-x-11 {
+  @apply space-x-11;
+}
+.fui-space-x-12 {
+  @apply space-x-12;
+}
+.fui-space-x-14 {
+  @apply space-x-14;
+}
+.fui-space-x-16 {
+  @apply space-x-16;
+}
+.fui-space-x-20 {
+  @apply space-x-20;
+}
+.fui-space-x-24 {
+  @apply space-x-24;
+}
+.fui-space-x-28 {
+  @apply space-x-28;
+}
+.fui-space-x-32 {
+  @apply space-x-32;
+}
+.fui-space-x-36 {
+  @apply space-x-36;
+}
+.fui-space-x-40 {
+  @apply space-x-40;
+}
+.fui-space-x-44 {
+  @apply space-x-44;
+}
+.fui-space-x-48 {
+  @apply space-x-48;
+}
+.fui-space-x-52 {
+  @apply space-x-52;
+}
+.fui-space-x-56 {
+  @apply space-x-56;
+}
+.fui-space-x-60 {
+  @apply space-x-60;
+}
+.fui-space-x-64 {
+  @apply space-x-64;
+}
+.fui-space-x-72 {
+  @apply space-x-72;
+}
+.fui-space-x-80 {
+  @apply space-x-80;
+}
+.fui-space-x-96 {
+  @apply space-x-96;
+}
+.fui-space-x-px {
+  @apply space-x-px;
+}
+.fui-minus-space-y-0 {
+  @apply -space-y-0;
+}
+.fui-minus-space-y-1 {
+  @apply -space-y-1;
+}
+.fui-minus-space-y-2 {
+  @apply -space-y-2;
+}
+.fui-minus-space-y-3 {
+  @apply -space-y-3;
+}
+.fui-minus-space-y-4 {
+  @apply -space-y-4;
+}
+.fui-minus-space-y-5 {
+  @apply -space-y-5;
+}
+.fui-minus-space-y-6 {
+  @apply -space-y-6;
+}
+.fui-minus-space-y-7 {
+  @apply -space-y-7;
+}
+.fui-minus-space-y-8 {
+  @apply -space-y-8;
+}
+.fui-minus-space-y-9 {
+  @apply -space-y-9;
+}
+.fui-minus-space-y-10 {
+  @apply -space-y-10;
+}
+.fui-minus-space-y-11 {
+  @apply -space-y-11;
+}
+.fui-minus-space-y-12 {
+  @apply -space-y-12;
+}
+.fui-minus-space-y-14 {
+  @apply -space-y-14;
+}
+.fui-minus-space-y-16 {
+  @apply -space-y-16;
+}
+.fui-minus-space-y-20 {
+  @apply -space-y-20;
+}
+.fui-minus-space-y-24 {
+  @apply -space-y-24;
+}
+.fui-minus-space-y-28 {
+  @apply -space-y-28;
+}
+.fui-minus-space-y-32 {
+  @apply -space-y-32;
+}
+.fui-minus-space-y-36 {
+  @apply -space-y-36;
+}
+.fui-minus-space-y-40 {
+  @apply -space-y-40;
+}
+.fui-minus-space-y-44 {
+  @apply -space-y-44;
+}
+.fui-minus-space-y-48 {
+  @apply -space-y-48;
+}
+.fui-minus-space-y-52 {
+  @apply -space-y-52;
+}
+.fui-minus-space-y-56 {
+  @apply -space-y-56;
+}
+.fui-minus-space-y-60 {
+  @apply -space-y-60;
+}
+.fui-minus-space-y-64 {
+  @apply -space-y-64;
+}
+.fui-minus-space-y-72 {
+  @apply -space-y-72;
+}
+.fui-minus-space-y-80 {
+  @apply -space-y-80;
+}
+.fui-minus-space-y-96 {
+  @apply -space-y-96;
+}
+.fui-minus-space-y-px {
+  @apply -space-y-px;
+}
+
+.fui-minus-space-x-0 {
+  @apply -space-x-0;
+}
+.fui-minus-space-x-1 {
+  @apply -space-x-1;
+}
+.fui-minus-space-x-2 {
+  @apply -space-x-2;
+}
+.fui-minus-space-x-3 {
+  @apply -space-x-3;
+}
+.fui-minus-space-x-4 {
+  @apply -space-x-4;
+}
+.fui-minus-space-x-5 {
+  @apply -space-x-5;
+}
+.fui-minus-space-x-6 {
+  @apply -space-x-6;
+}
+.fui-minus-space-x-7 {
+  @apply -space-x-7;
+}
+.fui-minus-space-x-8 {
+  @apply -space-x-8;
+}
+.fui-minus-space-x-9 {
+  @apply -space-x-9;
+}
+.fui-minus-space-x-10 {
+  @apply -space-x-10;
+}
+.fui-minus-space-x-11 {
+  @apply -space-x-11;
+}
+.fui-minus-space-x-12 {
+  @apply -space-x-12;
+}
+.fui-minus-space-x-14 {
+  @apply -space-x-14;
+}
+.fui-minus-space-x-16 {
+  @apply -space-x-16;
+}
+.fui-minus-space-x-20 {
+  @apply -space-x-20;
+}
+.fui-minus-space-x-24 {
+  @apply -space-x-24;
+}
+.fui-minus-space-x-28 {
+  @apply -space-x-28;
+}
+.fui-minus-space-x-32 {
+  @apply -space-x-32;
+}
+.fui-minus-space-x-36 {
+  @apply -space-x-36;
+}
+.fui-minus-space-x-40 {
+  @apply -space-x-40;
+}
+.fui-minus-space-x-44 {
+  @apply -space-x-44;
+}
+.fui-minus-space-x-48 {
+  @apply -space-x-48;
+}
+.fui-minus-space-x-52 {
+  @apply -space-x-52;
+}
+.fui-minus-space-x-56 {
+  @apply -space-x-56;
+}
+.fui-minus-space-x-60 {
+  @apply -space-x-60;
+}
+.fui-minus-space-x-64 {
+  @apply -space-x-64;
+}
+.fui-minus-space-x-72 {
+  @apply -space-x-72;
+}
+.fui-minus-space-x-80 {
+  @apply -space-x-80;
+}
+.fui-minus-space-x-96 {
+  @apply -space-x-96;
+}
+/* .fui-minus-space-x-px {
+  @apply -space-x-;
+} */

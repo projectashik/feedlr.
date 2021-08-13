@@ -1,0 +1,79 @@
+/* marker fix */
+.fui-typography li::marker {
+  display: none;
+  content: '';
+}
+
+.fui-typography-container {
+  @apply prose lg:prose-lg;
+}
+
+.fui-typography {
+  @apply text-base;
+  @apply text-gray-400;
+}
+.fui-typography code {
+  padding: 0.2em 0.4em 0.1em;
+  background: hsla(0, 0%, 58.8%, 0.1);
+  border: 1px solid hsla(0, 0%, 39.2%, 0.2);
+  border-radius: 3px;
+}
+
+/*
+  dark mode styles
+
+  default styles are handled by tailwind config
+*/
+
+[class~='dark'] .fui-typography {
+  @apply text-gray-200;
+}
+
+[class~='dark'] .fui-typography h1 {
+  @apply text-white;
+}
+
+[class~='dark'] .fui-typography h2 {
+  @apply text-white;
+}
+
+[class~='dark'] .fui-typography h3 {
+  @apply text-white;
+}
+
+[class~='dark'] .fui-typography h4 {
+  @apply text-white;
+}
+
+[class~='dark'] .fui-typography h5 {
+  @apply text-white;
+}
+
+[class~='dark'] .fui-typography strong {
+  @apply text-white;
+}
+
+[class~='dark'] .fui-typography li::before {
+  @apply text-gray-300;
+}
+
+[class~='dark'] .fui-typography a {
+  @apply text-white;
+}
+
+[class~='dark'] .fui-typography blockquote {
+  @apply text-white;
+}
+
+[class~='dark'] .fui-typography code {
+  color: white;
+}
+
+[class~='dark'] .fui-typography figcaption {
+  @apply text-gray-600;
+}
+
+[class~='dark'] .fui-typography::selection {
+  /* @apply bg-brand-500; */
+  backgroundcolor: '#6f7bb635';
+}

@@ -1,0 +1,132 @@
+.fui-dropdown-item {
+  @apply text-typography-body-light;
+  @apply px-4 py-2 flex items-center space-x-2;
+  @apply cursor-pointer;
+  @apply border-none;
+  cursor: 'default';
+
+  user-select: none;
+}
+
+.fui-dropdown-item:focus {
+  @apply bg-bg-secondary-light;
+}
+
+[class~='dark'] .fui-dropdown-item:focus {
+  @apply bg-bg-primary-dark;
+}
+
+[class~='dark'] .fui-dropdown-item {
+  @apply text-typography-body-dark;
+}
+
+.fui-dropdown-item svg {
+  @apply text-typography-body-secondary-light;
+}
+
+[class~='dark'] .fui-dropdown-item svg {
+  @apply text-typography-body-secondary-dark;
+}
+
+.fui-dropdown-label {
+  @apply text-typography-body-secondary-light;
+  @apply px-4 py-3 flex items-center space-x-2;
+}
+
+[class~='dark'] .fui-dropdown-label {
+  @apply text-typography-body-secondary-dark;
+}
+
+.fui-dropdown-misc {
+  @apply px-4 py-1.5;
+}
+
+.fui-dropdown-item:focus-visible {
+  border: none;
+  outline: none;
+}
+
+.fui-dropdown-input {
+  @apply flex items-center space-x-0 pl-8 pr-4;
+}
+
+.fui-dropdown-input__check {
+  @apply absolute left-2;
+  @apply flex items-center;
+}
+
+.fui-dropdown__content {
+  @apply bg-bg-primary-light p-0;
+  @apply border border-lightmode;
+  @apply rounded;
+  @apply shadow;
+  overflow: visible;
+  border-style: solid;
+  border-width: 1px;
+}
+
+[class~='dark'] .fui-dropdown__content {
+  @apply bg-bg-secondary-dark border-darkmode;
+}
+
+@keyframes transition {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fui-dropdown__content {
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+  animation: transition 0.1s ease-out;
+}
+
+.fui-dropdown__trigger {
+  @apply inline-flex border-none bg-transparent p-0 focus:ring-0;
+}
+
+.fui-dropdown__arrow {
+  @apply fill-current text-bg-primary-light;
+  @apply border-0 border-t;
+  border-style: solid;
+}
+
+[class~='dark'] .fui-dropdown__arrow {
+  @apply text-bg-secondary-dark;
+}
+
+.fui-dropdown-item-trigger {
+  @apply text-xs;
+  @apply text-typography-body-light;
+  @apply px-4 py-1.5 flex items-center space-x-2;
+  @apply cursor-pointer;
+  cursor: 'default';
+}
+
+[class~='dark'] .fui-dropdown-item-trigger {
+  @apply text-typography-body-dark;
+}
+
+.fui-dropdown-item-trigger svg {
+  @apply text-typography-body-secondary-light;
+}
+
+[class~='dark'] .fui-dropdown-item-trigger svg {
+  @apply text-typography-body-secondary-dark;
+}
+
+.fui-dropdown-item-trigger:focus-visible {
+  border: none;
+  outline: none;
+}
+
+.fui-dropdown__trigger-item[data-state='open'] {
+  @apply bg-bg-secondary-light border-none;
+}
+[class~='dark'] .fui-dropdown__trigger-item[data-state='open'] {
+  @apply bg-bg-primary-dark;
+}
