@@ -16,8 +16,11 @@ import { EmojiSelect } from 'components';
 import { MdComputer } from 'react-icons/md';
 import Tippy from '@tippyjs/react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 function ProjectIndexPage() {
+  const router = useRouter();
+  const { id } = router.query;
   const [filterModalVisible, setFilterModalVisible] = useState(false);
 
   function toggleFilterModal() {
@@ -74,7 +77,7 @@ function ProjectIndexPage() {
     );
   };
   return (
-    <ProjectLayout>
+    <ProjectLayout id={id}>
       <Typography.Text>Total Responses: 0</Typography.Text>
 
       <div className='mt-4'>
@@ -106,7 +109,7 @@ function ProjectIndexPage() {
           </div>
           <div className='flex flex-col gap-3'>
             <div>
-              <Tippy content='Device Info' followCursor={true}>
+              <Tippy content='Device Info'>
                 <button className='flex items-center gap-3'>
                   <MdComputer />
                   <Typography.Text>
@@ -116,7 +119,7 @@ function ProjectIndexPage() {
               </Tippy>
             </div>
             <div>
-              <Tippy content='11 August 2017 15:00:65' followCursor={true}>
+              <Tippy content='11 August 2017 15:00:65'>
                 <button className='flex items-center gap-3'>
                   <FiClock />
                   <Typography.Text>5 sec ago</Typography.Text>
@@ -155,7 +158,7 @@ function ProjectIndexPage() {
           </div>
           <div className='flex flex-col gap-3'>
             <div>
-              <Tippy content='Device Info' followCursor={true}>
+              <Tippy content='Device Info'>
                 <button className='flex items-center gap-3'>
                   <MdComputer />
                   <Typography.Text>
@@ -165,7 +168,7 @@ function ProjectIndexPage() {
               </Tippy>
             </div>
             <div>
-              <Tippy content='11 August 2017 15:00:65' followCursor={true}>
+              <Tippy content='11 August 2017 15:00:65'>
                 <button className='flex items-center gap-3'>
                   <FiClock />
                   <Typography.Text>5 sec ago</Typography.Text>
@@ -195,7 +198,7 @@ function ProjectIndexPage() {
           </div>
           <div className='flex flex-col gap-3'>
             <div>
-              <Tippy content='Device Info' followCursor={true}>
+              <Tippy content='Device Info'>
                 <button className='flex items-center gap-3'>
                   <MdComputer />
                   <Typography.Text>
@@ -205,7 +208,7 @@ function ProjectIndexPage() {
               </Tippy>
             </div>
             <div>
-              <Tippy content='11 August 2017 15:00:65' followCursor={true}>
+              <Tippy content='11 August 2017 15:00:65'>
                 <button className='flex items-center gap-3'>
                   <FiClock />
                   <Typography.Text>5 sec ago</Typography.Text>
@@ -244,7 +247,7 @@ function ProjectIndexPage() {
           </div>
           <div className='flex flex-col gap-3'>
             <div>
-              <Tippy content='Device Info' followCursor={true}>
+              <Tippy content='Device Info'>
                 <button className='flex items-center gap-3'>
                   <MdComputer />
                   <Typography.Text>
@@ -254,7 +257,7 @@ function ProjectIndexPage() {
               </Tippy>
             </div>
             <div>
-              <Tippy content='11 August 2017 15:00:65' followCursor={true}>
+              <Tippy content='11 August 2017 15:00:65'>
                 <button className='flex items-center gap-3'>
                   <FiClock />
                   <Typography.Text>5 sec ago</Typography.Text>
@@ -284,7 +287,7 @@ function ProjectIndexPage() {
           </div>
           <div className='flex flex-col gap-3'>
             <div>
-              <Tippy content='Device Info' followCursor={true}>
+              <Tippy content='Device Info'>
                 <button className='flex items-center gap-3'>
                   <MdComputer />
                   <Typography.Text>
@@ -294,7 +297,7 @@ function ProjectIndexPage() {
               </Tippy>
             </div>
             <div>
-              <Tippy content='11 August 2017 15:00:65' followCursor={true}>
+              <Tippy content='11 August 2017 15:00:65'>
                 <button className='flex items-center gap-3'>
                   <FiClock />
                   <Typography.Text>5 sec ago</Typography.Text>
@@ -333,7 +336,7 @@ function ProjectIndexPage() {
           </div>
           <div className='flex flex-col gap-3'>
             <div>
-              <Tippy content='Device Info' followCursor={true}>
+              <Tippy content='Device Info'>
                 <button className='flex items-center gap-3'>
                   <MdComputer />
                   <Typography.Text>
@@ -343,7 +346,7 @@ function ProjectIndexPage() {
               </Tippy>
             </div>
             <div>
-              <Tippy content='11 August 2017 15:00:65' followCursor={true}>
+              <Tippy content='11 August 2017 15:00:65'>
                 <button className='flex items-center gap-3'>
                   <FiClock />
                   <Typography.Text>5 sec ago</Typography.Text>

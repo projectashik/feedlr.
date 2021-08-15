@@ -1,0 +1,10 @@
+.feedlr-widget-iframe-sticky-bottom {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 10px;
+  --feedlr-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))
+    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.06)) !important;
+  filter: var(--feedlr-drop-shadow) !important;
+}

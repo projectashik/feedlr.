@@ -1,41 +1,21 @@
+import { projects } from '@prisma/client';
 import { Typography, Card, Button, Modal, Space, Input } from 'components/ui';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { FiAlertCircle, FiTrash } from 'react-icons/fi';
-export const DangerSettingsComponent = () => {
+import { DeleteProjectModal } from '../DeleteProjectModal';
+
+interface Props {
+  project: any;
+}
+
+export const DangerSettingsComponent = ({ project }: Props) => {
   const [visible, setVisible] = useState(false);
+  const [projectUrl, setProjectUrl] = useState('');
 
   function toggle() {
     setVisible(!visible);
   }
-  const DeleteModal = () => {
-    return (
-      <Modal
-        visible={visible}
-        layout='vertical'
-        title='Delete Project'
-        onCancel={toggle}
-        closable
-        customFooter={[
-          <Space key={Math.random()}>
-            <Button type='outline' onClick={toggle}>
-              Cancel
-            </Button>
-            <Button danger onClick={toggle} icon={<FiTrash />}>
-              Delete
-            </Button>
-          </Space>,
-        ]}
-      >
-        <p>
-          <Typography.Text>This action is irreversible</Typography.Text>
-        </p>
-        <Typography.Text>
-          Type <strong>feedlr.tk</strong> to confirm
-        </Typography.Text>
-        <Input placeholder='Project URL' />
-      </Modal>
-    );
-  };
+
   return (
     <section id='Danger' className='mt-4'>
       <Typography.Title level={4} className='font-bold'>
@@ -47,7 +27,11 @@ export const DangerSettingsComponent = () => {
           Delete Project
         </Button>
       </Card>
-      <DeleteModal />
+      <DeleteProjectModal
+        visible={visible}
+        setVisible={setVisible}
+        project={project}
+      />
     </section>
   );
 };

@@ -1,5 +1,8 @@
 import { ProjectLayout } from 'layouts';
+import { useRouter } from 'next/router';
 
 export default function InstallationSettingsPage() {
-  return <ProjectLayout>Installations</ProjectLayout>;
+  const router = useRouter();
+  const { id } = router.query;
+  return <ProjectLayout id={id}>Installations</ProjectLayout>;
 }

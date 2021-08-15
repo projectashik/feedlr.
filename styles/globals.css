@@ -16,3 +16,7 @@
 html {
   font-family: 'DM Sans', sans-serif;
 }
+[class~='dark'] .react-loading-skeleton {
+  background-color: #181818 !important;
+  background-image: linear-gradient(90deg, #181818, #333, #181818) !important;
+}

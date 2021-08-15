@@ -11,22 +11,29 @@ import { FiEye, FiArrowLeft, FiMenu } from 'react-icons/fi';
 import router from 'next/router';
 import { WaitingForData } from 'components';
 import { useEffect } from 'react';
+import useSWR from 'swr';
+import fetcher from 'libs/fetcher';
+import Skeleton from 'react-loading-skeleton';
 
-export const ProjectLayout = ({ children }: any) => {
+export const ProjectLayout = ({ children, id }: any) => {
+  const { data: project, error: projectError } = useSWR(
+    '/api/projects/get?id=' + id,
+    fetcher
+  );
   const goBack = () => {
-    router.back();
+    router.push('/dashboard');
   };
 
   const goToResponses = () => {
-    router.push('/project/random-id/');
+    router.push(`/project/${id}`);
   };
 
   const goToSettings = () => {
-    router.push('/project/random-id/settings');
+    router.push(`/project/${id}/settings`);
   };
 
   const goToInstallations = () => {
-    router.push('/project/random-id/installations');
+    router.push(`/project/${id}/installations`);
   };
 
   const Menu = () => {
@@ -67,7 +74,17 @@ export const ProjectLayout = ({ children }: any) => {
             ></Button>
           </span>
           <Menu></Menu>
-          <Typography.Text>Project Name</Typography.Text>
+          {project ? (
+            <Typography.Text>
+              {project.name} (
+              <a href={'https://' + project.url} rel='noreferer'>
+                {project.url}
+              </a>
+              )
+            </Typography.Text>
+          ) : (
+            <Skeleton width={60} height={15} />
+          )}
         </div>
         <nav>
           <ul className='md:flex gap-2 hidden'>

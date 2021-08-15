@@ -15,8 +15,7 @@ export const WaitingForData = () => {
           className='mt-3 '
           inputClass='py-3 dark:bg-gray-800'
           copy
-          value='&lt;script async
-          src="https://feedlr.so/init.js"&gt;&lt;/script&gt;'
+          value={`<script async src="${window.location.origin}/init.js"></script>`}
         />
       </Card>
     </div>

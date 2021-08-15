@@ -7,38 +7,48 @@ import { FiPlus, FiTrash } from 'react-icons/fi';
 import React, { useState } from 'react';
 import { useAtom } from 'jotai';
 import { createProjectVisibleAtom } from 'state';
+import { useEffect } from 'react';
+import useSWR from 'swr';
+import fetcher from 'libs/fetcher';
+import { ProjectCard } from 'components/Projects/ProjectCard';
+import { projects } from '@prisma/client';
+import Skeleton from 'react-loading-skeleton';
 
 function DashboardIndex() {
   const [visible, setVisible] = useAtom(createProjectVisibleAtom);
   function toggleCreateProjectModal() {
     setVisible(!visible);
   }
+  const { data: projects, error: projectsError } = useSWR<projects[]>(
+    '/api/projects/getAll',
+    fetcher
+  );
 
   return (
     <AuthLayout>
       <Typography.Title level={3}>Your Projects</Typography.Title>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-5'>
         <div className='order-2 md:order-1 col-span-2 grid grid-col-1 gap-4'>
-          <Link href='/project/random-id/'>
-            <a>
-              <Card hoverable>
-                <Typography.Title level={4}>Project Name</Typography.Title>
-                <Typography.Text className='text-sm dark:text-gray-300 text-gray-600'>
-                  Created At: 2078-06-09
-                </Typography.Text>
-              </Card>
-            </a>
-          </Link>
-          <Link href='/'>
-            <a>
-              <Card hoverable>
-                <Typography.Title level={4}>Project Name</Typography.Title>
-                <Typography.Text className='text-sm text-gray-600 dark:text-gray-300'>
-                  Created At: 2078-06-09
-                </Typography.Text>
-              </Card>
-            </a>
-          </Link>
+          {projects &&
+            projects.map((project: projects) => {
+              return (
+                <ProjectCard key={project.id} project={project}></ProjectCard>
+              );
+            })}
+
+          {!projects && (
+            <Card hoverable>
+              <Typography.Title level={4}>
+                <Skeleton></Skeleton>
+              </Typography.Title>
+              <Typography.Text className='text-sm dark:text-gray-300 text-gray-600'>
+                <Skeleton></Skeleton>
+              </Typography.Text>
+            </Card>
+          )}
+
+          {/* @ts-ignore */}
+          {projects?.length < 1 && 'No Projects Found'}
         </div>
         <div className='order-1 md:order-2'>
           <div>

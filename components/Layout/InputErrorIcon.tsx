@@ -12,12 +12,7 @@ interface Props {
 export default function InputErrorIcon({ style, size }: Props) {
   return (
     <div className={InputErrorIconStyles['fui-input-error-icon']} style={style}>
-      <FiAlertCircle
-        size={size}
-        strokeWidth={2}
-        stroke={'#f56565'}
-        className=''
-      />
+      <FiAlertCircle strokeWidth={2} stroke={'#f56565'} className='' />
     </div>
   );
 }

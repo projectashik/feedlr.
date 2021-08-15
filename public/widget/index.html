@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./widget-style.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body x-data="{showWindow: true}">
+    <div id="app">
+      <main class="container" x-show="showWindow">
+        <header>
+          <button
+            class="close_button"
+            @click.prevent="showWindow = !showWindow"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-x"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </header>
+        <div class="content">
+          <p class="feedback_question">What do you think about Feedlr.?</p>
+          <div class="emojis_collections">
+            <button class="hate active">
+              <img
+                src="./emojis/hate.gif"
+                width="40"
+                height="40"
+                alt="Hate Gif"
+              />
+            </button>
+            <button class="disappointed">
+              <img
+                src="./emojis/disappointed.gif"
+                width="40"
+                height="40"
+                alt="Disappointed Gif"
+              />
+            </button>
+            <button class="natural">
+              <img
+                src="./emojis/natural.gif"
+                width="40"
+                height="40"
+                alt="Natural Gif"
+              />
+            </button>
+            <button class="good">
+              <img
+                src="./emojis/good.gif"
+                width="40"
+                height="40"
+                alt="Good Gif"
+              />
+            </button>
+            <button class="excellent">
+              <img
+                src="./emojis/excellent.gif"
+                width="40"
+                height="40"
+                alt="Excellent Gif"
+              />
+            </button>
+          </div>
+
+          <textarea
+            class="feedback_area"
+            name="feedback"
+            id="feedback"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <button class="submit_button">Submit Feedback</button>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

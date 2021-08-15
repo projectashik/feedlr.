@@ -17,7 +17,6 @@
 
 .fui-btn:disabled {
   @apply opacity-75 cursor-not-allowed;
-  pointer-events: none;
 }
 
 /*
