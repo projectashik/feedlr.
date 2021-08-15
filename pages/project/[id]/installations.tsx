@@ -1,8 +1,13 @@
 import { ProjectLayout } from 'layouts';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 export default function InstallationSettingsPage() {
-  const router = useRouter();
-  const { id } = router.query;
-  return <ProjectLayout id={id}>Installations</ProjectLayout>;
+  // const router = useRouter();
+  // const { id } = router.query;
+  return (
+    <>
+      {/* <ProjectLayout id={id}>Installations</ProjectLayout> */}
+      Installations
+    </>
+  );
 }
