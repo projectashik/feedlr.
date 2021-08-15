@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const url = 'http://localhost:3000';
+  const url = 'https://feedlr.vercel.app';
   const iframeUrl = url + '/widget/index.html';
   const styleUrl = url + 'widget.css';
   // Creating link tag
