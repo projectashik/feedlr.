@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const url = 'https://feedlr.vercel.app';
   const iframeUrl = url + '/widget/index.html';
-  const styleUrl = url + 'widget.css';
+  const styleUrl = url + '/widget.css';
   // Creating link tag
   const linkTag = document.createElement('link');
   linkTag.rel = 'stylesheet';
