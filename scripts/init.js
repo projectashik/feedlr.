@@ -25,8 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const emojis_buttons =
       iframe.contentWindow.document.querySelectorAll('.emoji_radio');
+    const buttons = iframe.contentWindow.document.querySelectorAll('button');
     emojis_buttons.forEach((btn) => {
       btn.addEventListener('change', () => {
+        changeIframeHeight();
+      });
+    });
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
         changeIframeHeight();
       });
     });
