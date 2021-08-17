@@ -11,20 +11,17 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./widget-style.css" />
     <script
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <link rel="stylesheet" href="./widget-style.css" />
   </head>
   <body x-data="{showWindow: true}">
     <div id="app">
       <main class="container" x-show="showWindow">
         <header>
-          <button
-            class="close_button"
-            @click.prevent="showWindow = !showWindow"
-          >
+          <button @click="showWindow = false" class="close_button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -45,58 +42,111 @@
         <div class="content">
           <p class="feedback_question">What do you think about Feedlr.?</p>
           <div class="emojis_collections">
-            <button class="hate active">
+            <label for="hate" class="hate">
+              <input
+                type="radio"
+                name="reaction"
+                class="emoji_radio"
+                id="hate"
+                value="hate"
+              />
               <img
                 src="./emojis/hate.gif"
                 width="40"
                 height="40"
                 alt="Hate Gif"
               />
-            </button>
-            <button class="disappointed">
+            </label>
+            <label for="disappointed" class="disappointed">
+              <input
+                type="radio"
+                name="reaction"
+                value="disappointed"
+                class="emoji_radio"
+                id="disappointed"
+              />
               <img
                 src="./emojis/disappointed.gif"
                 width="40"
                 height="40"
                 alt="Disappointed Gif"
               />
-            </button>
-            <button class="natural">
+            </label>
+            <label for="natural" class="natural">
+              <input
+                type="radio"
+                name="reaction"
+                value="natural"
+                class="emoji_radio"
+                id="natural"
+              />
               <img
                 src="./emojis/natural.gif"
                 width="40"
                 height="40"
                 alt="Natural Gif"
               />
-            </button>
-            <button class="good">
+            </label>
+            <label for="good" class="good">
+              <input
+                type="radio"
+                name="reaction"
+                value="good"
+                class="emoji_radio"
+                id="good"
+              />
               <img
                 src="./emojis/good.gif"
                 width="40"
                 height="40"
                 alt="Good Gif"
               />
-            </button>
-            <button class="excellent">
+            </label>
+            <label for="excellent" class="excellent">
+              <input
+                type="radio"
+                name="reaction"
+                value="excellent"
+                class="emoji_radio"
+                id="excellent"
+              />
               <img
                 src="./emojis/excellent.gif"
                 width="40"
                 height="40"
                 alt="Excellent Gif"
               />
-            </button>
+            </label>
           </div>
 
-          <textarea
-            class="feedback_area"
-            name="feedback"
-            id="feedback"
-            cols="30"
-            rows="10"
-          ></textarea>
-          <button class="submit_button">Submit Feedback</button>
+          <div class="feedback_section">
+            <textarea
+              class="feedback_area"
+              name="feedback"
+              id="feedback"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <button class="submit_button">Submit Feedback</button>
+          </div>
         </div>
+        <footer class="text-center">
+          Widget by
+          <a target="_blank" rel="noreferrer" href="https://feedlr.vercel.app"
+            >Feedlr.</a
+          >
+        </footer>
       </main>
     </div>
+
+    <script>
+      const emojis_fields = document.querySelectorAll('.emoji_radio');
+      const feedback_section = document.querySelector('.feedback_section');
+      emojis_fields.forEach((field) => {
+        field.addEventListener('change', (e) => {
+          feedback_section.style.display = 'flex';
+        });
+      });
+    </script>
   </body>
 </html>

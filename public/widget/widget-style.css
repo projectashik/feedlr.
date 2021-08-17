@@ -1,17 +1,32 @@
+:root {
+  --primary-color: rgba(107, 33, 168, 1);
+  --widget-bg: white;
+}
+
+* {
+  font-family: 'DM Sans', sans-serif;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
-* {
-  font-family: 'DM Sans', sans-serif;
+::selection {
+  background: var(--primary-color);
+  color: white;
+}
+
+a {
+  color: var(--primary-color);
 }
 
 .container {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: white;
+  background-color: var(--widget-bg);
 }
 
 header {
@@ -49,6 +64,7 @@ header {
 
 .feedback_question {
   text-align: center;
+  font-size: 17px;
 }
 
 .emojis_collections {
@@ -56,29 +72,38 @@ header {
   justify-content: space-between;
 }
 
-.emojis_collections button {
+.emojis_collections label img {
   opacity: 0.6;
   background: transparent;
   border: 0;
   outline: none;
   cursor: pointer;
-  transition: opacity 0.5s;
+  transform: scale(1);
+  transition: transform opacity 0.5s;
 }
 
-.emojis_collections button:hover {
+.emojis_collections label:hover img {
   opacity: 1;
 }
 
-.emojis_collections button.active {
+.emoji_radio {
+  display: none;
+}
+
+.emojis_collections label .emoji_radio:checked + img {
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.4);
+}
+
+.feedback_section {
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+  gap: 15px;
 }
 
 .feedback_area {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -100,8 +125,7 @@ header {
 }
 
 .submit_button {
-  --tw-bg-opacity: 1;
-  background-color: rgba(107, 33, 168, var(--tw-bg-opacity));
+  background-color: var(--primary-color);
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
   border-width: 1px;
@@ -128,4 +152,11 @@ header {
   cursor: pointer;
   align-items: center;
   font-size: 16px;
+}
+
+footer {
+  text-align: center;
+  padding-top: 10px;
+  color: rgb(119, 119, 119);
+  font-size: 14px;
 }
