@@ -17,3 +17,7 @@ model projects {
   userId String @db.VarChar
   createdAt DateTime @default(now()) @db.Timestamptz(6)
 }
+
+model settings {
+  id String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+}

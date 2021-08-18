@@ -112,6 +112,7 @@ header {
   border-style: solid;
   --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-color: #e0e0e0;
+  font-size: 16px;
 }
 
 .feedback_area:focus {
@@ -159,4 +160,12 @@ footer {
   padding-top: 10px;
   color: rgb(119, 119, 119);
   font-size: 14px;
+}
+
+.thankyouWindow {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--widget-bg);
 }

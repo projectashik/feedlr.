@@ -46,6 +46,7 @@ export const UXSettingsComponent = () => {
                 </button>
                 <button
                   type='button'
+                  disabled
                   onClick={() => setFeedbackType('category')}
                   className={
                     'border-2 dark:border-gray-650 flex flex-col items-center  focus:border-brand-300 p-2 rounded justify-end ' +
@@ -59,6 +60,9 @@ export const UXSettingsComponent = () => {
                       Current
                     </p>
                   )}
+                  <p className='text-center font-bold mb-2 text-brand-600'>
+                    Being built
+                  </p>
                   <Image
                     src='/fd-types/category.png'
                     width={200}

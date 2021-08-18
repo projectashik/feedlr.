@@ -17,7 +17,7 @@
     ></script>
     <link rel="stylesheet" href="./widget-style.css" />
   </head>
-  <body x-data="{showWindow: true}">
+  <body x-data="{showWindow: true, submitted: false}">
     <div id="app">
       <main class="container" x-show="showWindow">
         <header>
@@ -127,7 +127,12 @@
               cols="30"
               rows="10"
             ></textarea>
-            <button class="submit_button">Submit Feedback</button>
+            <button
+              @click="submitted = true; showWindow = false; setInterval(() => {submitted = false}, 1000)"
+              class="submit_button"
+            >
+              Submit Feedback
+            </button>
           </div>
         </div>
         <footer class="text-center">
@@ -137,16 +142,10 @@
           >
         </footer>
       </main>
+      <div id="thankyou" x-show="submitted" class="thankyouWindow">
+        Thanks for your feedback.
+      </div>
     </div>
-
-    <script>
-      const emojis_fields = document.querySelectorAll('.emoji_radio');
-      const feedback_section = document.querySelector('.feedback_section');
-      emojis_fields.forEach((field) => {
-        field.addEventListener('change', (e) => {
-          feedback_section.style.display = 'flex';
-        });
-      });
-    </script>
+    <script src="./widget.js"></script>
   </body>
 </html>
