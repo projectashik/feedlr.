@@ -17,8 +17,13 @@
     ></script>
     <link rel="stylesheet" href="./widget-style.css" />
   </head>
-  <body x-data="{showWindow: true, submitted: false}">
-    <div id="app">
+  <body x-data="{showWindow: true, submitted: false}" class="dark">
+    <div
+      id="app"
+      x-data="projectData()"
+      x-show="projectData().project"
+      x-init="init()"
+    >
       <main class="container" x-show="showWindow">
         <header>
           <button @click="showWindow = false" class="close_button">
@@ -40,7 +45,12 @@
           </button>
         </header>
         <div class="content">
-          <p class="feedback_question">What do you think about Feedlr.?</p>
+          <p
+            class="feedback_question"
+            x-text="project.setting.question.replaceAll('%name%', project.name)"
+          >
+            What do you think about Feedlr.?
+          </p>
           <div class="emojis_collections">
             <label for="hate" class="hate">
               <input

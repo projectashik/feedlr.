@@ -1,4 +1,3 @@
-import { projects } from '@prisma/client';
 import { Typography, Card, Button, Modal, Space, Input } from 'components/ui';
 import { useRef, useState } from 'react';
 import { FiAlertCircle, FiTrash } from 'react-icons/fi';

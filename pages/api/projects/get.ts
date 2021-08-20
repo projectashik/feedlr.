@@ -12,12 +12,15 @@ async function getProject(req: NextApiRequest, res: NextApiResponse) {
   const { user }: { user: UserProfile } = getSession(req, res);
 
   try {
-    const response = await prisma.projects.findFirst({
+    const response = await prisma.project.findFirst({
       where: {
         // @ts-ignore
         id,
         //@ts-ignore
         userId: user.sub,
+      },
+      include: {
+        setting: true,
       },
     });
 

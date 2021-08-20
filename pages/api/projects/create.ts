@@ -14,7 +14,7 @@ async function createProject(req: NextApiRequest, res: NextApiResponse) {
     const { user }: { user: UserProfile } = getSession(req, res);
     if (user) {
       try {
-        const createReq = await prisma.projects.create({
+        const createReq = await prisma.project.create({
           data: {
             name,
             url,
@@ -23,10 +23,23 @@ async function createProject(req: NextApiRequest, res: NextApiResponse) {
           },
         });
 
-        res.json({
-          success: true,
-          data: createReq,
-        });
+        try {
+          const settingsReq = await prisma.setting.create({
+            data: {
+              projectId: createReq.id,
+            },
+          });
+
+          res.json({
+            success: true,
+            data: createReq,
+          });
+        } catch (error) {
+          res.json({
+            success: false,
+            error: error,
+          });
+        }
       } catch (error) {
         if (error.meta.target.includes('url')) {
           res.json({

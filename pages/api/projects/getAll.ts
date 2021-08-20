@@ -11,7 +11,7 @@ async function getAllProjects(req: NextApiRequest, res: NextApiResponse) {
   // @ts-ignore
   const { user }: { user: UserProfile } = getSession(req, res);
   if (user) {
-    const response = await prisma.projects.findMany({
+    const response = await prisma.project.findMany({
       where: {
         // @ts-ignore
         userId: user.sub,

@@ -10,14 +10,30 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model projects {
+model Project {
   id String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   name String @db.VarChar()
   url String @db.VarChar() @unique
   userId String @db.VarChar
   createdAt DateTime @default(now()) @db.Timestamptz(6)
+  setting Setting?
 }
 
-model settings {
+model Setting {
   id String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  project Project @relation(fields: [projectId], references: [id])
+  projectId String @db.Uuid @unique
+  type String @default("emoji")
+  question String @default("What do you think about %name%?")
+  thankYouMessage String @default("Thanks for your feedback.")
+  coolDownResponse String @default("no")
+  coolDownCancel String @default("no")
+  lightModeBackground String @default("ffffff")
+  lightModeButtonColor String @default("9261DF")
+  lightModeTextColor String @default("000000")
+  darkModeBackground String @default("0F0F0F")
+  darkModeButtonColor String @default("9261DF")
+  darkModeTextColor String @default("ffffff")
+  includeUrls String?
+  excludeUrls String?
 }

@@ -8,16 +8,82 @@ import {
   Select,
 } from 'components/ui';
 import { useState } from 'react';
+import { BaseSyntheticEvent } from 'react';
+import { Project, Setting } from '@prisma/client';
+import toast from 'react-hot-toast';
+import axios from 'axios';
+import { useEffect } from 'react';
 
-export const UXSettingsComponent = () => {
-  const [feedbackType, setFeedbackType] = useState('emoji');
+export const UXSettingsComponent = ({ project }: { project: any }) => {
+  console.log(project);
+  const [loading, setLoading] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [questionError, setQuestionError] = useState('');
+  const [thankYouMessageError, setThankYouMessageError] = useState('');
+
+  const [feedbackType, setFeedbackType] = useState(
+    project?.setting ? project?.setting.type : 'emoji'
+  );
+  const [question, setQuestion] = useState(
+    project?.setting
+      ? project?.setting.question
+      : 'What do you think about %name%?'
+  );
+
+  const [thankYouMessage, setThankYouMessage] = useState(
+    project?.setting
+      ? project?.setting.thankYouMessage
+      : 'Thanks for your feedback.'
+  );
+
+  const [coolDownResponse, setCoolDownResponse] = useState(
+    project?.setting ? project?.setting.coolDownResponse : 'week'
+  );
+  console.log(coolDownResponse);
+  const [coolDownCancel, setCoolDownCancel] = useState(
+    project?.setting ? project?.setting.coolDownCancel : 'day'
+  );
+  console.log(coolDownResponse);
+
+  const saveSetting = async () => {
+    return await axios.post('/api/projects/settings/widget', {
+      type: feedbackType,
+      question,
+      thankYouMessage,
+      coolDownResponse,
+      coolDownCancel,
+      projectId: project.id,
+    });
+  };
+
+  const onSubmit = (e: BaseSyntheticEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    if (thankYouMessage.length < 1) {
+      setThankYouMessageError('Thank you message is required');
+      setLoading(false);
+      return false;
+    }
+    if (question < 1) {
+      setQuestion('What do you think about %name%?');
+      setLoading(false);
+      return false;
+    }
+    setLoading(false);
+    toast.promise(saveSetting(), {
+      loading: 'Saving...',
+      success: <b>Settings saved!</b>,
+      error: <b>Could not save.</b>,
+    });
+  };
+
   return (
     <section id='UX'>
       <Typography.Title level={4} className='font-bold'>
         Widget
       </Typography.Title>
       <Card className='mt-4'>
-        <form action=''>
+        <form onSubmit={onSubmit}>
           <div className='flex gap-4'>
             <div className='flex-1'>
               <Typography.Text strong>Feedback Type</Typography.Text>
@@ -77,11 +143,21 @@ export const UXSettingsComponent = () => {
           <div className='grid grid-cols-2 gap-4'>
             <div>
               <Typography.Text strong>Question?</Typography.Text>
-              <Input defaultValue='What do you think about Feedlr?' />
+              <Input
+                error={questionError}
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                defaultValue='What do you think about %name%?'
+              />
             </div>
             <div>
               <Typography.Text strong>Thank you message</Typography.Text>
-              <Input defaultValue='Thanks for your feedback.' />
+              <Input
+                error={thankYouMessageError}
+                value={thankYouMessage}
+                onChange={(e) => setThankYouMessage(e.target.value)}
+                defaultValue='Thanks for your feedback.'
+              />
             </div>
           </div>
           <Divider light className='my-4' />
@@ -90,26 +166,65 @@ export const UXSettingsComponent = () => {
             <div className='grid grid-cols-2 gap-4 mt-3'>
               <div>
                 <Typography.Text>After Response</Typography.Text>
-                <Select>
-                  <Select.Option value='no'>Don&apos;t Cool</Select.Option>
-                  <Select.Option value='day'>1 day</Select.Option>
-                  <Select.Option value='week'>1 week</Select.Option>
-                  <Select.Option value='month'>1 month</Select.Option>
+                <Select onChange={(e) => setCoolDownResponse(e.target.value)}>
+                  <Select.Option
+                    selected={coolDownResponse === 'no' && true}
+                    value='no'
+                  >
+                    Don&apos;t Cool
+                  </Select.Option>
+                  <Select.Option
+                    selected={coolDownResponse === 'day' && true}
+                    value='day'
+                  >
+                    1 day
+                  </Select.Option>
+                  <Select.Option
+                    selected={coolDownResponse === 'week' && true}
+                    value='week'
+                  >
+                    1 week
+                  </Select.Option>
+                  <Select.Option
+                    selected={coolDownResponse === 'month' && true}
+                    value='month'
+                  >
+                    1 month
+                  </Select.Option>
                 </Select>
               </div>
               <div>
                 <Typography.Text>After Cancel</Typography.Text>
-                <Select>
-                  <Select.Option value='no'>Don&apos;t Cool</Select.Option>
-                  <Select.Option value='day'>1 day</Select.Option>
-                  <Select.Option value='week'>1 week</Select.Option>
-                  <Select.Option value='month'>1 month</Select.Option>
+                <Select onChange={(e) => setCoolDownCancel(e.target.value)}>
+                  <Select.Option
+                    selected={coolDownCancel === 'no' && true}
+                    value='no'
+                  >
+                    Don&apos;t Cool
+                  </Select.Option>
+                  <Select.Option selected={true} value='day'>
+                    1 day
+                  </Select.Option>
+                  <Select.Option
+                    selected={coolDownCancel === 'week' && true}
+                    value='week'
+                  >
+                    1 week
+                  </Select.Option>
+                  <Select.Option
+                    selected={coolDownCancel === 'month' && true}
+                    value='month'
+                  >
+                    1 month
+                  </Select.Option>
                 </Select>
               </div>
             </div>
           </div>
           <div className='mt-4 flex justify-end'>
-            <Button type='primary'>Save</Button>
+            <Button htmlType='submit' type='primary' loading={loading}>
+              Save
+            </Button>
           </div>
         </form>
       </Card>

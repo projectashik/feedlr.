@@ -12,7 +12,7 @@ async function deleteProject(req: NextApiRequest, res: NextApiResponse) {
     // @ts-ignore
     const { user }: { user: UserProfile } = getSession(req, res);
     try {
-      const response = await prisma.projects.findFirst({
+      const response = await prisma.project.findFirst({
         where: {
           id: id,
           // @ts-ignore
@@ -22,7 +22,7 @@ async function deleteProject(req: NextApiRequest, res: NextApiResponse) {
 
       if (response) {
         try {
-          const response = await prisma.projects.delete({
+          const response = await prisma.project.delete({
             where: {
               id,
             },
