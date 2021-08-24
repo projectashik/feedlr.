@@ -2,24 +2,22 @@ import { withPageAuthRequired } from '@auth0/nextjs-auth0/dist/frontend';
 import { Button, Typography, Space, Modal, Input } from 'components/ui';
 import Card from 'components/ui/Card/Card';
 import { AuthLayout } from 'layouts';
-import Link from 'next/link';
 import { FiPlus, FiTrash } from 'react-icons/fi';
-import React, { useState } from 'react';
+import React from 'react';
 import { useAtom } from 'jotai';
 import { createProjectVisibleAtom } from 'state';
-import { useEffect } from 'react';
 import useSWR from 'swr';
 import fetcher from 'libs/fetcher';
 import { ProjectCard } from 'components/Projects/ProjectCard';
-import { projects } from '@prisma/client';
 import Skeleton from 'react-loading-skeleton';
+import { Project } from '@prisma/client';
 
 function DashboardIndex() {
   const [visible, setVisible] = useAtom(createProjectVisibleAtom);
   function toggleCreateProjectModal() {
     setVisible(!visible);
   }
-  const { data: projects, error: projectsError } = useSWR<projects[]>(
+  const { data: projects, error: projectsError } = useSWR(
     '/api/projects/getAll',
     fetcher
   );
@@ -30,7 +28,7 @@ function DashboardIndex() {
       <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-5'>
         <div className='order-2 md:order-1 col-span-2 grid grid-col-1 gap-4'>
           {projects &&
-            projects.map((project: projects) => {
+            projects.map((project: Project) => {
               return (
                 <ProjectCard key={project.id} project={project}></ProjectCard>
               );

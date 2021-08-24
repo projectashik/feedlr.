@@ -9,10 +9,8 @@ import {
 } from 'components/ui';
 import { useState } from 'react';
 import { BaseSyntheticEvent } from 'react';
-import { Project, Setting } from '@prisma/client';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import { useEffect } from 'react';
 
 export const UXSettingsComponent = ({ project }: { project: any }) => {
   console.log(project);
