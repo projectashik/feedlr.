@@ -1,8 +1,7 @@
-import { Project } from '@prisma/client';
 import { Card, Typography } from 'components/ui';
 import Link from 'next/link';
 
-export const ProjectCard = ({ project }: { project: Project }) => {
+export const ProjectCard = ({ project }: { project: any }) => {
   const date = new Date(project.createdAt);
   const createdAt = date.toISOString().slice(0, 10);
   // const createdAt = date.toLocaleString("YYYY-mm-DD HH:ii:ss")
