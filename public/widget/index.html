@@ -15,6 +15,11 @@
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+    ></script>
+
     <link rel="stylesheet" href="./widget-style.css" />
   </head>
   <body x-data="{showWindow: true, submitted: false}" class="dark">
@@ -129,21 +134,27 @@
             </label>
           </div>
 
-          <div class="feedback_section">
+          <form
+            x-on:submit.prevent="submitted = true; showWindow = false; setInterval(() => {submitted = false}, 1000)"
+            class="feedback_section"
+            id="feedback_form"
+          >
+            <input
+              type="email"
+              required
+              class="email_area"
+              placeholder="Email"
+              id="email_field"
+            />
             <textarea
               class="feedback_area"
+              placeholder="Your feedback here"
               name="feedback"
               id="feedback"
-              cols="30"
-              rows="10"
+              required
             ></textarea>
-            <button
-              @click="submitted = true; showWindow = false; setInterval(() => {submitted = false}, 1000)"
-              class="submit_button"
-            >
-              Submit Feedback
-            </button>
-          </div>
+            <button type="submit" class="submit_button">Submit Feedback</button>
+          </form>
         </div>
         <footer class="text-center">
           Widget by

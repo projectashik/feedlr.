@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   render() {
@@ -10,6 +11,7 @@ class MyDocument extends Document {
             rel='stylesheet'
           />
           <script defer src='/init.js'></script>
+          {/* <script defer src='/ff.js'></script> */}
         </Head>
         <body>
           <Main />

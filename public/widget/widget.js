@@ -1,4 +1,6 @@
-const base_url = 'http://localhost:3000';
+// const base_url = 'http://localhost:3000';
+const base_url = 'https://feedlr.vercel.app';
+
 const emojis_fields = document.querySelectorAll('.emoji_radio');
 const feedback_section = document.querySelector('.feedback_section');
 let reaction;
@@ -8,11 +10,6 @@ emojis_fields.forEach((field) => {
     reaction = field.value;
     window.parent.postMessage('reaction_selected');
   });
-});
-
-const submit_button = document.querySelector('.submit_button');
-submit_button.addEventListener('click', async () => {
-  // const res = await axios.post(base_url + '/api/responses/create');
 });
 
 // Actual work reside here
@@ -91,3 +88,20 @@ function projectData() {
     },
   };
 }
+
+const feedback_form = document.querySelector('#feedback_form');
+feedback_form.addEventListener('submit', () => {
+  const email = document.querySelector('#email_field').value;
+  const feedback = document.querySelector('#feedback').value;
+
+  if (email.length > 0 && feedback.length > 0) {
+    window.parent.postMessage('requested_url');
+    let url = window.parent.location.href;
+    const res = axios.post('/api/responses/create', {
+      email,
+      feedback,
+      url,
+    });
+    window.parent.postMessage('response_submitted');
+  }
+});

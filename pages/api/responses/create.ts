@@ -4,7 +4,11 @@ export default function createResponse(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log(req.headers['user-agent']);
+  console.log(req.body);
   if (req.method === 'POST') {
-    console.log(req.headers);
+    res.json({
+      success: true,
+    });
   }
 }

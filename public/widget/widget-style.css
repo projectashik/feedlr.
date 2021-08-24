@@ -112,7 +112,8 @@ header {
   gap: 15px;
 }
 
-.feedback_area {
+.feedback_area,
+.email_area {
   padding: 0.5rem 1rem;
   box-sizing: border-box;
   display: block;
@@ -180,4 +181,5 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: var(--widget-bg);
+  color: var(--text-color);
 }

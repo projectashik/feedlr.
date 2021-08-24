@@ -1,19 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // const url = 'http://localhost:3000';
   const url = 'https://feedlr.vercel.app';
   const iframeUrl = url + '/widget/index.html';
   const styleUrl = url + '/widget.css';
 
-  function addStyles() {
-    const linkTag = document.createElement('link');
-    linkTag.rel = 'stylesheet';
-    linkTag.href = styleUrl;
-    document.head.append(linkTag);
-  }
+  // Creating link tag
+  const linkTag = document.createElement('link');
+  linkTag.rel = 'stylesheet';
+  linkTag.href = styleUrl;
 
-  // // Creating Iframe Tag
+  // Injecting link tag
+  document.head.append(linkTag);
+
+  // Creating Iframe Tag
   const iframe = document.createElement('iframe');
   iframe.src = iframeUrl;
+  iframe.setAttribute('allowscripts', 'true');
+  iframe.setAttribute('allowforms', 'true');
+  iframe.setAttribute('allowpopups', 'true');
+  iframe.setAttribute('allowsame-origin', 'true');
+  iframe.setAttribute('allowdownloads', 'true');
+  iframe.setAttribute('allowtransparency', 'true');
   iframe.width = '350';
   iframe.classList.add('feedlr-widget-sticky-bottom');
   iframe.onload = function () {
@@ -30,16 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    window.addEventListener('message', (event) => {
-      if (event.data === 'requested_url') {
-        iframe.contentWindow.postMessage('url_is_here');
-      }
-      if (event.data === 'response_submitted') {
-        iframe.height = '250px';
-        setInterval(() => {
-          iframe.height = 0;
-        }, 1100);
-      }
+    submit_button.addEventListener('click', async () => {
+      iframe.height = '250px';
+      const res = await axios.post(url + '/api/responses/create');
+      setInterval(() => {
+        iframe.height = 0;
+      }, 1100);
     });
   };
 
@@ -56,9 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     iframe.height = iframe.contentWindow.document.body.scrollHeight + 'px';
   }
 
-  // openModal();
-
-  addStyles();
   openModal();
   changeIframeHeight();
 });
