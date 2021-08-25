@@ -10,7 +10,7 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap'
             rel='stylesheet'
           />
-          <script defer src='/init.js'></script>
+          <script type='module' defer src='/init.js'></script>
           {/* <script defer src='/ff.js'></script> */}
         </Head>
         <body>
