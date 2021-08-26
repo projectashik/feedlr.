@@ -3,6 +3,7 @@
   --feedlr-widget-bg: white;
   --feedlr-button-color: rgba(107, 33, 168, 1);
   --feedlr-text-color: #000000;
+  --feedlr-font-family: sans-serif;
 }
 
 .dark {
@@ -12,9 +13,13 @@
   --feedlr-text-color: #fff;
 }
 
+.feedlr-container {
+}
+
 .feedlr-container *::selection {
   background-color: var(--feedlr-primary-color);
   color: white;
+  font-family: var(--feedlr-font-family);
 }
 
 .feedlr-widget-toggler {
@@ -28,6 +33,7 @@
   border-radius: 10px !important;
   z-index: 1000 !important;
   transform: scale(1) !important;
+  font-family: var(--feedlr-font-family);
 }
 
 .feedlr-widget.widget-fixed {
@@ -66,6 +72,7 @@
   text-align: center;
   font-size: 17px;
   color: var(--feedlr-text-color);
+  font-family: var(--feedlr-font-family);
 }
 
 .feedlr-emoji-container {
@@ -78,6 +85,9 @@
   opacity: 0.6 !important;
   transform: scale(1);
   transition: transform 0.5s;
+  outline: none;
+  border: none;
+  background: transparent;
 }
 
 .feedlr-selected-emoji {
@@ -87,6 +97,7 @@
 
 .feedlr-email_input,
 .feedlr-feedback_input {
+  box-sizing: border-box;
   padding: 0.5rem 1rem;
   display: block;
   width: 100%;
@@ -97,6 +108,7 @@
   font-size: 16px;
   background: var(--feedlr-widget-bg);
   color: var(--feedlr-text-color);
+  font-family: var(--feedlr-font-family);
 }
 
 .feedlr-email_input:focus,
@@ -106,10 +118,10 @@
   box-shadow: none;
 }
 
-.feedlr-email_input::placeholder,
+/* .feedlr-email_input::placeholder,
 .feedlr-feedback_input::placeholder {
   color: var(--feedlr-placeholder-color);
-}
+} */
 
 .feedlr-feedback_submit {
   background-color: var(--feedlr-button-color);
@@ -120,12 +132,14 @@
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-radius: 0.25rem;
+  font-family: var(--feedlr-font-family);
 }
 
 .feedlr-footer_text {
   font-size: 14px;
   text-align: center;
   color: var(--feedlr-text-color);
+  font-family: var(--feedlr-font-family);
 }
 
 .feedlr-footer_text a {

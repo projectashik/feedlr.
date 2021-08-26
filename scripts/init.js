@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
       .then((fetchedData) => {
         console.log(fetchedData);
         if (
-          fetchedData.url === window.location.pathname ||
+          fetchedData.url === window.location.host ||
           fetchedData.setting.localhostEnabled
         ) {
           console.log(fetchedData);
