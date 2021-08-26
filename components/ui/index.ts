@@ -10,3 +10,4 @@ export { Input } from './Input';
 export { Radio } from './Radio';
 export { Badge } from './Badge';
 export { Select } from './Select';
+export { Switch } from './Switch';

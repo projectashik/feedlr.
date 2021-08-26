@@ -36,4 +36,5 @@ model Setting {
   darkModeTextColor    String @default("ffffff")
   includeUrls          String?
   excludeUrls          String?
+  localhostEnabled     Boolean @default(false)
 }

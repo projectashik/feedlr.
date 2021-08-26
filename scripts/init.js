@@ -1,27 +1,39 @@
-const base_url = 'https://feedlr.vercel.app';
+const base_url = 'http://localhost:3000';
 const css_url = base_url + '/widget.css';
 
 window.addEventListener('DOMContentLoaded', () => {
+  const script = document.querySelector('script[data-feedlr-project-id]');
+  const projectId = script?.getAttribute('data-feedlr-project-id');
+  console.log({ script, projectId });
   const emojis = ['hate', 'disappointed', 'natural', 'good', 'excellent'];
   let selectedEmoji = '';
   const container = document.createElement('div');
   container.classList.add('feedlr-container');
   document.body.appendChild(container);
 
+  let fetch_url = base_url + '/api/projects/widget?url=' + window.location.host;
+  if (projectId) {
+    fetch_url = base_url + '/api/projects/widget?id=' + projectId;
+  }
+
   const init = async () => {
+    console.log(fetch_url);
     console.log('Fetching', window.location.host + 'http');
-    try {
-      fetch('/api/projects/widget?url=' + window.location.host)
-        .then((response) => response.json())
-        .then((fetchedData) => {
+    fetch(fetch_url)
+      .then((response) => response.json())
+      .then((fetchedData) => {
+        console.log(fetchedData);
+        if (
+          fetchedData.url === window.location.pathname ||
+          fetchedData.setting.localhostEnabled
+        ) {
+          console.log(fetchedData);
           createToggler();
           createWidget(fetchedData);
           loadStyles(fetchedData.setting);
-        });
-    } catch (error) {
-      console.log("Project doesn't exist in the feedlr. dashboard");
-      console.log('error');
-    }
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   const injectStyleSheet = () => {
@@ -122,6 +134,8 @@ window.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const email_value = email_input.value;
       const feedback_value = feedback_input.value;
+
+      // Set the created date in the localStorage
 
       console.log('Form Submitted');
       widget.removeChild(question);

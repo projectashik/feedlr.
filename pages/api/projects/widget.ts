@@ -5,19 +5,31 @@ export default async function getTheProjectDetails(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { url }: { url?: string } = req.query;
+  const { url, id }: { url?: string; id?: string } = req.query;
 
   try {
-    const response = await prisma.project.findFirst({
-      where: {
-        url,
-      },
-      include: {
-        setting: true,
-      },
-    });
-
-    res.json(response);
+    if (url) {
+      const response = await prisma.project.findFirst({
+        where: {
+          url,
+        },
+        include: {
+          setting: true,
+        },
+      });
+      res.json(response);
+    }
+    if (id) {
+      const response = await prisma.project.findFirst({
+        where: {
+          id,
+        },
+        include: {
+          setting: true,
+        },
+      });
+      res.json(response);
+    }
   } catch (error) {
     res.json({
       success: false,

@@ -22,16 +22,29 @@ async function deleteProject(req: NextApiRequest, res: NextApiResponse) {
 
       if (response) {
         try {
-          const response = await prisma.project.delete({
+          await prisma.setting.delete({
             where: {
-              id,
+              projectId: id,
             },
           });
+          try {
+            const response = await prisma.project.delete({
+              where: {
+                id,
+              },
+            });
 
-          res.json({
-            success: true,
-          });
+            res.json({
+              success: true,
+            });
+          } catch (error) {
+            res.json({
+              success: false,
+              error: error.message,
+            });
+          }
         } catch (error) {
+          console.log(error);
           res.json({
             success: false,
             error: error.message,
@@ -44,6 +57,7 @@ async function deleteProject(req: NextApiRequest, res: NextApiResponse) {
         });
       }
     } catch (error) {
+      console.log(error);
       res.json({
         success: false,
         error: error.message,
