@@ -2,7 +2,7 @@ import { Card, Typography } from 'components/ui';
 import Tippy from '@tippyjs/react';
 import Image from 'next/image';
 import { MdComputer } from 'react-icons/md';
-import { FiClock } from 'react-icons/fi';
+import { FiClock, FiMail } from 'react-icons/fi';
 import { Response } from '@prisma/client';
 import { useUserAgent } from 'next-useragent';
 export const ResponseCard = ({ response }: { response: Response }) => {
@@ -36,6 +36,14 @@ export const ResponseCard = ({ response }: { response: Response }) => {
         </div>
       </div>
       <div className='flex flex-col gap-3'>
+        <div>
+          <Tippy content='Email'>
+            <button className='flex items-center gap-3'>
+              <FiMail />
+              <Typography.Text>{response.email}</Typography.Text>
+            </button>
+          </Tippy>
+        </div>
         <div>
           <Tippy content='Device Info'>
             <button className='flex items-center gap-3'>

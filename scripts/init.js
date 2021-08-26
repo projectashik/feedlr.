@@ -1,5 +1,5 @@
-// const base_url = 'http://localhost:3000';
-const base_url = 'https://feedlr.vercel.app';
+const base_url = 'http://localhost:3000';
+// const base_url = 'https://feedlr.vercel.app';
 const css_url = base_url + '/widget.css';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -140,12 +140,14 @@ window.addEventListener('DOMContentLoaded', () => {
           res.json();
         })
         .then((fetchedDataSome) => {
-          if (data.setting.coolDownResponse) {
+          if (data.setting.coolDownResponse > 0) {
+            let reopenDate = new Date();
+            reopenDate.setDate(
+              reopenDate.getDate() + parseInt(data.setting.coolDownResponse)
+            );
             localStorage.setItem(
               'feedlr-response',
-              `{created_at: ${new Date()}, remove_until: ${
-                new Date().getDate() + 30
-              }}`
+              `{created_at: ${new Date()}, remove_until: ${reopenDate}}`
             );
           }
         });

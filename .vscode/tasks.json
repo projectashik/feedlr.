@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "widget",
+      "problemMatcher": [],
+      "label": "npm: widget",
+      "detail": "npx uglify-js scripts/init.js -m -c -o public/init.js"
+    }
+  ]
+}
