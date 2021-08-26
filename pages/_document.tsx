@@ -12,7 +12,7 @@ class MyDocument extends Document {
           />
           <script
             defer
-            src='http://localhost:3000/init.js'
+            src='./init.js'
             data-feedlr-project-id='3f44c855-1e52-404d-989b-1a2c6fe705f8'
           ></script>
           {/* <script defer src='/ff.js'></script> */}
