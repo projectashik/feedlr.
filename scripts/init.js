@@ -1,5 +1,5 @@
-// const base_url = 'http://localhost:3000';
-const base_url = 'https://feedlr.vercel.app';
+const base_url = 'http://localhost:3000';
+// const base_url = 'https://feedlr.vercel.app';
 const css_url = base_url + '/widget.css';
 
 window.addEventListener('DOMContentLoaded', () => {

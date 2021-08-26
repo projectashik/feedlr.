@@ -6,6 +6,7 @@ export default async function getTheProjectDetails(
   res: NextApiResponse
 ) {
   const { url, id }: { url?: string; id?: string } = req.query;
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
   try {
     if (url) {
