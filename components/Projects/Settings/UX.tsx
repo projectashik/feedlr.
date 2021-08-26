@@ -35,11 +35,7 @@ export const UXSettingsComponent = ({ project }: { project: any }) => {
   );
 
   const [coolDownResponse, setCoolDownResponse] = useState(
-    project?.setting ? project?.setting.coolDownResponse : 'week'
-  );
-  console.log(coolDownResponse);
-  const [coolDownCancel, setCoolDownCancel] = useState(
-    project?.setting ? project?.setting.coolDownCancel : 'day'
+    project?.setting ? project?.setting.coolDownResponse : 0
   );
   console.log(coolDownResponse);
 
@@ -49,7 +45,6 @@ export const UXSettingsComponent = ({ project }: { project: any }) => {
       question,
       thankYouMessage,
       coolDownResponse,
-      coolDownCancel,
       projectId: project.id,
     });
   };
@@ -163,62 +158,12 @@ export const UXSettingsComponent = ({ project }: { project: any }) => {
             <Typography.Text strong>Cool Down</Typography.Text>
             <div className='grid grid-cols-2 gap-4 mt-3'>
               <div>
-                <Typography.Text>After Response</Typography.Text>
-                <Select onChange={(e) => setCoolDownResponse(e.target.value)}>
-                  <Select.Option
-                    selected={coolDownResponse === 'no' && true}
-                    value='no'
-                  >
-                    Don&apos;t Cool
-                  </Select.Option>
-                  <Select.Option
-                    selected={coolDownResponse === 'day' && true}
-                    value='day'
-                  >
-                    1 day
-                  </Select.Option>
-                  <Select.Option
-                    selected={coolDownResponse === 'week' && true}
-                    value='week'
-                  >
-                    1 week
-                  </Select.Option>
-                  <Select.Option
-                    selected={coolDownResponse === 'month' && true}
-                    value='month'
-                  >
-                    1 month
-                  </Select.Option>
-                </Select>
-              </div>
-              <div>
-                <Typography.Text>After Cancel</Typography.Text>
-                <Select onChange={(e) => setCoolDownCancel(e.target.value)}>
-                  <Select.Option
-                    selected={coolDownCancel === 'no' && true}
-                    value='no'
-                  >
-                    Don&apos;t Cool
-                  </Select.Option>
-                  <Select.Option
-                    selected={coolDownCancel === 'day' && true}
-                    value='day'
-                  >
-                    1 day
-                  </Select.Option>
-                  <Select.Option
-                    selected={coolDownCancel === 'week' && true}
-                    value='week'
-                  >
-                    1 week
-                  </Select.Option>
-                  <Select.Option
-                    selected={coolDownCancel === 'month' && true}
-                    value='month'
-                  >
-                    1 month
-                  </Select.Option>
-                </Select>
+                <Typography.Text>After Response (Days)</Typography.Text>
+                <Input
+                  type='number'
+                  value={coolDownResponse}
+                  onChange={(e) => setCoolDownResponse(e.target.value)}
+                />
               </div>
             </div>
           </div>

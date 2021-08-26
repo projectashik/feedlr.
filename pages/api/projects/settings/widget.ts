@@ -9,14 +9,9 @@ import prisma from 'utils/prisma';
 
 async function updateWidget(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const {
-      type,
-      question,
-      thankYouMessage,
-      coolDownResponse,
-      coolDownCancel,
-      projectId,
-    } = req.body;
+    const { type, question, thankYouMessage, coolDownResponse, projectId } =
+      req.body;
+    console.log(coolDownResponse);
     try {
       const updateRes = await prisma.setting.update({
         where: {
@@ -26,14 +21,15 @@ async function updateWidget(req: NextApiRequest, res: NextApiResponse) {
           type,
           question,
           thankYouMessage,
-          coolDownResponse,
-          coolDownCancel,
+          coolDownResponse: parseInt(coolDownResponse),
         },
       });
+      console.log(updateRes);
       res.json({
         success: true,
       });
     } catch (error) {
+      console.log(error);
       res.json({
         success: false,
         error,

@@ -139,7 +139,16 @@ window.addEventListener('DOMContentLoaded', () => {
         .then((res) => {
           res.json();
         })
-        .then((data) => {});
+        .then((fetchedDataSome) => {
+          if (data.setting.coolDownResponse) {
+            localStorage.setItem(
+              'feedlr-response',
+              `{created_at: ${new Date()}, remove_until: ${
+                new Date().getDate() + 30
+              }}`
+            );
+          }
+        });
       widget.removeChild(question);
       widget.removeChild(emoji_container);
       widget.removeChild(feedback_form);
