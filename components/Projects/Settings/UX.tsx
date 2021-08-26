@@ -200,7 +200,10 @@ export const UXSettingsComponent = ({ project }: { project: any }) => {
                   >
                     Don&apos;t Cool
                   </Select.Option>
-                  <Select.Option selected={true} value='day'>
+                  <Select.Option
+                    selected={coolDownCancel === 'day' && true}
+                    value='day'
+                  >
                     1 day
                   </Select.Option>
                   <Select.Option

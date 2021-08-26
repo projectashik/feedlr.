@@ -17,6 +17,9 @@ import { MdComputer } from 'react-icons/md';
 import Tippy from '@tippyjs/react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { ResponseCard } from 'components/Projects/ResponseCard';
+import useSWR from 'swr';
+import fetcher from 'libs/fetcher';
 
 function ProjectIndexPage() {
   const router = useRouter();
@@ -26,6 +29,13 @@ function ProjectIndexPage() {
   function toggleFilterModal() {
     setFilterModalVisible(!filterModalVisible);
   }
+
+  const { data: responses, error: projectsError } = useSWR(
+    `/api/responses/getAll?projectId=${id}`,
+    fetcher
+  );
+
+  console.log(responses);
 
   const FilterModal = () => {
     const onEmojiSelect = (emoji: any) => {
@@ -89,272 +99,10 @@ function ProjectIndexPage() {
         </div>
       </div>
       <div className='flex flex-col gap-4 mt-4'>
-        <Card hoverable className='flex flex-col gap-4'>
-          <div className='flex gap-4'>
-            <div>
-              <Badge>Idea</Badge>
-            </div>
-            <div className='flex flex-col'>
-              <Typography.Text strong className='uppercase text-sm'>
-                From{' '}
-                <Typography.Link
-                  href='https://feedlr.co/ashik'
-                  className='normal-case font-normal'
-                >
-                  https://feedlr.co/ashik
-                </Typography.Link>
-              </Typography.Text>
-              <Typography.Text>This is the feedback</Typography.Text>
-            </div>
-          </div>
-          <div className='flex flex-col gap-3'>
-            <div>
-              <Tippy content='Device Info'>
-                <button className='flex items-center gap-3'>
-                  <MdComputer />
-                  <Typography.Text>
-                    Chrome Dev 92.0.4515.131 on Linux (desktop)
-                  </Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-            <div>
-              <Tippy content='11 August 2017 15:00:65'>
-                <button className='flex items-center gap-3'>
-                  <FiClock />
-                  <Typography.Text>5 sec ago</Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-          </div>
-        </Card>
-
-        <Card hoverable className='flex flex-col gap-4'>
-          <div className='flex gap-4'>
-            <div>
-              <Tippy content='Excellent'>
-                <button>
-                  <Image
-                    src='/emojis/excellent.gif'
-                    width={40}
-                    height={40}
-                    alt='Emoji'
-                  />
-                </button>
-              </Tippy>
-            </div>
-            <div className='flex flex-col'>
-              <Typography.Text strong className='uppercase text-sm'>
-                From{' '}
-                <Typography.Link
-                  href='https://feedlr.co/ashik'
-                  className='normal-case font-normal'
-                >
-                  https://feedlr.co/ashik
-                </Typography.Link>
-              </Typography.Text>
-              <Typography.Text>This is the feedback</Typography.Text>
-            </div>
-          </div>
-          <div className='flex flex-col gap-3'>
-            <div>
-              <Tippy content='Device Info'>
-                <button className='flex items-center gap-3'>
-                  <MdComputer />
-                  <Typography.Text>
-                    Chrome Dev 92.0.4515.131 on Linux (desktop)
-                  </Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-            <div>
-              <Tippy content='11 August 2017 15:00:65'>
-                <button className='flex items-center gap-3'>
-                  <FiClock />
-                  <Typography.Text>5 sec ago</Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-          </div>
-        </Card>
-
-        <Card hoverable className='flex flex-col gap-4'>
-          <div className='flex gap-4'>
-            <div>
-              <Badge>Idea</Badge>
-            </div>
-            <div className='flex flex-col'>
-              <Typography.Text strong className='uppercase text-sm'>
-                From{' '}
-                <Typography.Link
-                  href='https://feedlr.co/ashik'
-                  className='normal-case font-normal'
-                >
-                  https://feedlr.co/ashik
-                </Typography.Link>
-              </Typography.Text>
-              <Typography.Text>This is the feedback</Typography.Text>
-            </div>
-          </div>
-          <div className='flex flex-col gap-3'>
-            <div>
-              <Tippy content='Device Info'>
-                <button className='flex items-center gap-3'>
-                  <MdComputer />
-                  <Typography.Text>
-                    Chrome Dev 92.0.4515.131 on Linux (desktop)
-                  </Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-            <div>
-              <Tippy content='11 August 2017 15:00:65'>
-                <button className='flex items-center gap-3'>
-                  <FiClock />
-                  <Typography.Text>5 sec ago</Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-          </div>
-        </Card>
-
-        <Card hoverable className='flex flex-col gap-4'>
-          <div className='flex gap-4'>
-            <div>
-              <Tippy content='Excellent'>
-                <button>
-                  <Image
-                    src='/emojis/excellent.gif'
-                    width={40}
-                    height={40}
-                    alt='Emoji'
-                  />
-                </button>
-              </Tippy>
-            </div>
-            <div className='flex flex-col'>
-              <Typography.Text strong className='uppercase text-sm'>
-                From{' '}
-                <Typography.Link
-                  href='https://feedlr.co/ashik'
-                  className='normal-case font-normal'
-                >
-                  https://feedlr.co/ashik
-                </Typography.Link>
-              </Typography.Text>
-              <Typography.Text>This is the feedback</Typography.Text>
-            </div>
-          </div>
-          <div className='flex flex-col gap-3'>
-            <div>
-              <Tippy content='Device Info'>
-                <button className='flex items-center gap-3'>
-                  <MdComputer />
-                  <Typography.Text>
-                    Chrome Dev 92.0.4515.131 on Linux (desktop)
-                  </Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-            <div>
-              <Tippy content='11 August 2017 15:00:65'>
-                <button className='flex items-center gap-3'>
-                  <FiClock />
-                  <Typography.Text>5 sec ago</Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-          </div>
-        </Card>
-
-        <Card hoverable className='flex flex-col gap-4'>
-          <div className='flex gap-4'>
-            <div>
-              <Badge>Idea</Badge>
-            </div>
-            <div className='flex flex-col'>
-              <Typography.Text strong className='uppercase text-sm'>
-                From{' '}
-                <Typography.Link
-                  href='https://feedlr.co/ashik'
-                  className='normal-case font-normal'
-                >
-                  https://feedlr.co/ashik
-                </Typography.Link>
-              </Typography.Text>
-              <Typography.Text>This is the feedback</Typography.Text>
-            </div>
-          </div>
-          <div className='flex flex-col gap-3'>
-            <div>
-              <Tippy content='Device Info'>
-                <button className='flex items-center gap-3'>
-                  <MdComputer />
-                  <Typography.Text>
-                    Chrome Dev 92.0.4515.131 on Linux (desktop)
-                  </Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-            <div>
-              <Tippy content='11 August 2017 15:00:65'>
-                <button className='flex items-center gap-3'>
-                  <FiClock />
-                  <Typography.Text>5 sec ago</Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-          </div>
-        </Card>
-
-        <Card hoverable className='flex flex-col gap-4'>
-          <div className='flex gap-4'>
-            <div>
-              <Tippy content='Excellent'>
-                <button>
-                  <Image
-                    src='/emojis/excellent.gif'
-                    width={40}
-                    height={40}
-                    alt='Emoji'
-                  />
-                </button>
-              </Tippy>
-            </div>
-            <div className='flex flex-col'>
-              <Typography.Text strong className='uppercase text-sm'>
-                From{' '}
-                <Typography.Link
-                  href='https://feedlr.co/ashik'
-                  className='normal-case font-normal'
-                >
-                  https://feedlr.co/ashik
-                </Typography.Link>
-              </Typography.Text>
-              <Typography.Text>This is the feedback</Typography.Text>
-            </div>
-          </div>
-          <div className='flex flex-col gap-3'>
-            <div>
-              <Tippy content='Device Info'>
-                <button className='flex items-center gap-3'>
-                  <MdComputer />
-                  <Typography.Text>
-                    Chrome Dev 92.0.4515.131 on Linux (desktop)
-                  </Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-            <div>
-              <Tippy content='11 August 2017 15:00:65'>
-                <button className='flex items-center gap-3'>
-                  <FiClock />
-                  <Typography.Text>5 sec ago</Typography.Text>
-                </button>
-              </Tippy>
-            </div>
-          </div>
-        </Card>
+        {responses &&
+          responses.map((response: any) => (
+            <ResponseCard key={response.id} response={response}></ResponseCard>
+          ))}
       </div>
       <FilterModal />
     </ProjectLayout>

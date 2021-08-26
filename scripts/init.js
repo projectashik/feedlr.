@@ -1,11 +1,10 @@
-// const base_url = 'http://localhost:3000';
-const base_url = 'https://feedlr.vercel.app';
+const base_url = 'http://localhost:3000';
+// const base_url = 'https://feedlr.vercel.app';
 const css_url = base_url + '/widget.css';
 
 window.addEventListener('DOMContentLoaded', () => {
   const script = document.querySelector('script[data-feedlr-project-id]');
   const projectId = script?.getAttribute('data-feedlr-project-id');
-  console.log({ script, projectId });
   const emojis = ['hate', 'disappointed', 'natural', 'good', 'excellent'];
   let selectedEmoji = '';
   const container = document.createElement('div');
@@ -18,17 +17,13 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   const init = async () => {
-    console.log(fetch_url);
-    console.log('Fetching', window.location.host + 'http');
     fetch(fetch_url)
       .then((response) => response.json())
       .then((fetchedData) => {
-        console.log(fetchedData);
         if (
           fetchedData.url === window.location.host ||
           fetchedData.setting.localhostEnabled
         ) {
-          console.log(fetchedData);
           createToggler();
           createWidget(fetchedData);
           loadStyles(fetchedData.setting);
@@ -135,10 +130,16 @@ window.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const email_value = email_input.value;
       const feedback_value = feedback_input.value;
+      const from = window.location.href;
 
-      // Set the created date in the localStorage
-
-      console.log('Form Submitted');
+      fetch(
+        base_url +
+          `/api/responses/create?email=${email_value}&feedback=${feedback_value}&from=${from}&projectId=${data.id}&emoji=${selectedEmoji}`
+      )
+        .then((res) => {
+          res.json();
+        })
+        .then((data) => {});
       widget.removeChild(question);
       widget.removeChild(emoji_container);
       widget.removeChild(feedback_form);
@@ -147,6 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const container = document.querySelector('.feedlr-container');
         container.style.display = 'none';
       }, 4000);
+      // Set the created date in the localStorage
     });
   };
 

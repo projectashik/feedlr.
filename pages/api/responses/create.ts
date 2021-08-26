@@ -1,14 +1,33 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import prisma from 'utils/prisma';
 
-export default function createResponse(
+export default async function createResponse(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log(req.headers['user-agent']);
-  console.log(req.body);
-  if (req.method === 'POST') {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  const ua = <string>req.headers['user-agent'];
+  const { email, from, feedback, projectId, emoji }: any = req.query;
+  try {
+    const response = await prisma.response.create({
+      data: {
+        email,
+        url: from,
+        feedback,
+        ua,
+        projectId,
+        emoji,
+      },
+    });
+    console.log(response);
     res.json({
       success: true,
+      data: response,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
     });
   }
 }
