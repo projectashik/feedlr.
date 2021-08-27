@@ -18,6 +18,9 @@ async function getAllResponses(req: NextApiRequest, res: NextApiResponse) {
           // @ts-ignore
           projectId,
         },
+        orderBy: {
+          createdAt: 'desc',
+        },
       });
       res.json(response);
     } catch (error) {

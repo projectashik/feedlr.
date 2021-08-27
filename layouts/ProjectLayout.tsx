@@ -8,7 +8,7 @@ import {
 } from 'components/ui';
 import { AuthLayout } from 'layouts';
 import { FiEye, FiArrowLeft, FiMenu } from 'react-icons/fi';
-import router from 'next/router';
+import { useRouter } from 'next/router';
 import { WaitingForData } from 'components';
 import { useEffect } from 'react';
 import useSWR from 'swr';
@@ -16,6 +16,7 @@ import fetcher from 'libs/fetcher';
 import Skeleton from 'react-loading-skeleton';
 
 export const ProjectLayout = ({ children, id }: any) => {
+  const router = useRouter();
   const { data: project, error: projectError } = useSWR(
     '/api/projects/get?id=' + id,
     fetcher
@@ -140,7 +141,7 @@ export const ProjectLayout = ({ children, id }: any) => {
           <Button icon={<FiEye />} tooltip='Preview Widget' />
         </div>
       </div>
-      <WaitingForData />
+      <WaitingForData project={project} />
       <div className='main-content mt-5'>{children}</div>
     </AuthLayout>
   );

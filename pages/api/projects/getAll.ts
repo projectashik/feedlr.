@@ -16,6 +16,9 @@ async function getAllProjects(req: NextApiRequest, res: NextApiResponse) {
         // @ts-ignore
         userId: user.sub,
       },
+      orderBy: {
+        createdAt: 'desc',
+      },
     });
     res.json(response);
   } else {

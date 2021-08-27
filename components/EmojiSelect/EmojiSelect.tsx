@@ -6,7 +6,7 @@ function EmojiSelect({ onSelect }: any) {
   const emojis = ['disappointed', 'hate', 'natural', 'good', 'excellent'];
   const [selectedEmoji, setSelectedEmoji] = useState('');
   return (
-    <div>
+    <div className='flex justify-between mt-4'>
       {emojis.map((emoji) => {
         return (
           <Emoji

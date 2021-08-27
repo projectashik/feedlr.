@@ -1,5 +1,23 @@
 import { Card, Typography, Input } from 'components/ui';
-export const WaitingForData = () => {
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+export const WaitingForData = ({ project }: any) => {
+  const [loaded, setLoaded] = useState(false);
+  const [exHtml, setExHtml] = useState('');
+
+  useEffect(() => {
+    setLoaded(true);
+    fetch('https://' + project?.url)
+      .then((res) => res.text())
+      .then((html) => setExHtml(html))
+      .catch((error) => {
+        console.error(error);
+      });
+
+    console.log(setExHtml);
+  }, [project]);
+  if (!loaded) return <>Loading...</>;
   return (
     <div className='waiting-for-verification'>
       <Card className='mt-2'>

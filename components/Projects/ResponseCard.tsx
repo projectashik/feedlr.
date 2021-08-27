@@ -5,8 +5,11 @@ import { MdComputer } from 'react-icons/md';
 import { FiClock, FiMail } from 'react-icons/fi';
 import { Response } from '@prisma/client';
 import { useUserAgent } from 'next-useragent';
+import TimeAgo from 'react-timeago';
+
 export const ResponseCard = ({ response }: { response: Response }) => {
   const ua = useUserAgent(response.ua);
+  const createdDate = new Date(response.createdAt);
   return (
     <Card hoverable className='flex flex-col gap-4'>
       <div className='flex gap-4'>
@@ -50,16 +53,18 @@ export const ResponseCard = ({ response }: { response: Response }) => {
               <MdComputer />
               <Typography.Text>
                 {ua.browser} {ua.browserVersion} on {ua.os}(
-                {ua.isDesktop ? 'Desktop' : 'Mobile'})
+                {ua.isDesktop ? 'Desktop' : 'Mobile'}) {ua.isBot && '(Bot)'}
               </Typography.Text>
             </button>
           </Tippy>
         </div>
         <div>
-          <Tippy content='11 August 2017 15:00:65'>
+          <Tippy content={createdDate.toString()}>
             <button className='flex items-center gap-3'>
               <FiClock />
-              <Typography.Text>5 sec ago</Typography.Text>
+              <Typography.Text>
+                <TimeAgo date={createdDate} />
+              </Typography.Text>
             </button>
           </Tippy>
         </div>

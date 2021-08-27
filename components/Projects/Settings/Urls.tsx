@@ -41,18 +41,18 @@ export const UrlsSettingsComponent = ({ project }: any) => {
                 Include Urls (Seperate values by comma)
               </Typography.Text>
               <Input.TextArea
-                value={includeUrls}
                 onChange={(e) => setIncludeUrls(e.target.value)}
                 className='mt-4'
                 placeholder='eg: /blog, /auth'
-              />
+                value={includeUrls ? includeUrls : ''}
+              ></Input.TextArea>
             </div>
             <div>
               <Typography.Text>
                 Exclude Urls (Seperate values by comma)
               </Typography.Text>
               <Input.TextArea
-                value={excludeUrls}
+                value={excludeUrls ? excludeUrls : ''}
                 onChange={(e) => setExcludeUrls(e.target.value)}
                 placeholder='eg: /blog, /auth'
                 className='mt-4'
