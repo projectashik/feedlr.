@@ -112,6 +112,7 @@ export default function Home() {
               alt='Widget Image'
               width='453'
               height='541'
+              unoptimized={true}
             />
           </section>
         </main>
@@ -180,6 +181,7 @@ export default function Home() {
                   height='30'
                   width='100'
                   alt='Five reactions'
+                  unoptimized={true}
                 />
               )}
             </div>
@@ -207,6 +209,7 @@ export default function Home() {
                   width='453'
                   height='541'
                   alt='Dark Mode'
+                  unoptimized={true}
                 />
               )}
             </div>
@@ -234,6 +237,7 @@ export default function Home() {
                   width='453'
                   height='541'
                   alt='Dark Mode'
+                  unoptimized={true}
                 />
               )}
             </div>
