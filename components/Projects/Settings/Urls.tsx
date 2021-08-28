@@ -31,7 +31,7 @@ export const UrlsSettingsComponent = ({ project }: any) => {
   return (
     <section id='Urls' className='mt-4'>
       <Typography.Title level={4} className='font-bold'>
-        Urls
+        Urls (Upcoming Feature)
       </Typography.Title>
       <Card className='mt-4'>
         <form onSubmit={onSubmit} className=''>

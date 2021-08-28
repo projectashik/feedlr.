@@ -15,7 +15,13 @@ class MyDocument extends Document {
             src='./init.js'
             data-feedlr-project-id='3f44c855-1e52-404d-989b-1a2c6fe705f8'
           ></script>
-          {/* <script defer src='/ff.js'></script> */}
+          <meta property='og:title' content='Feedlr.' />
+          <meta
+            property='og:description'
+            content='The one stop solution to recieve all the feedback for your
+            project'
+          />
+          <meta property='og:image' content='/images/ogImage.png' />
         </Head>
         <body>
           <Main />

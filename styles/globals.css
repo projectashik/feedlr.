@@ -12,6 +12,11 @@
   z-index: -1;
 }
 
+.highlight {
+  @apply z-50 before:bg-purple-700 before:rounded before:absolute before:top-0 before:left-0 before:h-full before:transform before:-rotate-2 before:w-full;
+  position: relative;
+}
+
 ::selection {
   color: white;
   @apply bg-brand-500;
