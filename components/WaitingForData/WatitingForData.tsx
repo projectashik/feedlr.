@@ -33,7 +33,7 @@ export const WaitingForData = ({ project }: any) => {
           className='mt-3 '
           inputClass='py-3 dark:bg-gray-800'
           copy
-          value={`<script async src="${window.location.origin}/init.js"></script>`}
+          value={`<script src="${window.location.origin}/init.js"></script>`}
         />
       </Card>
     </div>

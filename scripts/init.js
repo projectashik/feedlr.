@@ -5,10 +5,16 @@ const css_url = base_url + '/widget.css';
 window.addEventListener('DOMContentLoaded', () => {
   const script = document.querySelector('script[data-feedlr-project-id]');
   const projectId = script?.getAttribute('data-feedlr-project-id');
+  const rightOffset = script?.getAttribute('data-position-right');
+  const bottomOffset = script?.getAttribute('data-position-bottom');
+  const mode = script?.getAttribute('data-mode');
   const emojis = ['hate', 'disappointed', 'natural', 'good', 'excellent'];
   let selectedEmoji = '';
   const container = document.createElement('div');
   container.classList.add('feedlr-container');
+  if (mode === 'dark') {
+    container.classList.add('dark');
+  }
   document.body.appendChild(container);
 
   let fetch_url = base_url + '/api/projects/widget?url=' + window.location.host;
@@ -27,6 +33,15 @@ window.addEventListener('DOMContentLoaded', () => {
           createToggler();
           createWidget(fetchedData);
           loadStyles(fetchedData.setting);
+          const widgetToggler = document.querySelector(
+            '.feedlr-widget-toggler'
+          );
+          console.log(widgetToggler);
+          widgetToggler?.addEventListener('click', () => {
+            const widget = document.querySelector('.feedlr-widget');
+            console.log(widget);
+            widget?.classList.toggle('feedlr-widget-show');
+          });
         }
       })
       .catch((error) => console.log(error));
@@ -98,9 +113,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const email_input = document.createElement('input');
     email_input.type = 'email';
-    email_input.required = true;
     email_input.classList.add('feedlr-email_input');
-    email_input.placeholder = 'Enter your email';
+    email_input.placeholder = 'Enter your email (Optional)';
 
     const feedback_input = document.createElement('textarea');
     feedback_input.required = true;
@@ -166,6 +180,12 @@ window.addEventListener('DOMContentLoaded', () => {
   const loadStyles = (setting) => {
     const root = document.querySelector(':root');
     const body = document.querySelector('.dark');
+    if (rightOffset) {
+      root.style.setProperty('--feedlr-position-right', rightOffset + 'px');
+    }
+    if (bottomOffset) {
+      root.style.setProperty('--feedlr-position-bottom', bottomOffset + 'px');
+    }
     root.style.setProperty(
       '--feedlr-primary-color',
       '#' + (setting ? setting.lightModeButtonColor : '9261DF')

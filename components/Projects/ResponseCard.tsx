@@ -9,6 +9,13 @@ import TimeAgo from 'react-timeago';
 
 export const ResponseCard = ({ response }: { response: Response }) => {
   const ua = useUserAgent(response.ua);
+  const responseDevice = ua.isDesktop
+    ? 'Desktop'
+    : ua.isMobile
+    ? 'Mobile'
+    : ua.isTablet
+    ? 'Tablet'
+    : 'Desktop';
   const createdDate = new Date(response.createdAt);
   return (
     <Card hoverable className='flex flex-col gap-4'>
@@ -39,21 +46,24 @@ export const ResponseCard = ({ response }: { response: Response }) => {
         </div>
       </div>
       <div className='flex flex-col gap-3'>
-        <div>
-          <Tippy content='Email'>
-            <button className='flex items-center gap-3'>
-              <FiMail />
-              <Typography.Text>{response.email}</Typography.Text>
-            </button>
-          </Tippy>
-        </div>
+        {response.email && (
+          <div>
+            <Tippy content='Email'>
+              <button className='flex items-center gap-3'>
+                <FiMail />
+                <Typography.Text>{response.email}</Typography.Text>
+              </button>
+            </Tippy>
+          </div>
+        )}
         <div>
           <Tippy content='Device Info'>
             <button className='flex items-center gap-3'>
               <MdComputer />
               <Typography.Text>
                 {ua.browser} {ua.browserVersion} on {ua.os}(
-                {ua.isDesktop ? 'Desktop' : 'Mobile'}) {ua.isBot && '(Bot)'}
+                <span className='text-capitalize'>{responseDevice}</span>)
+                {ua.isBot && '(Bot)'}
               </Typography.Text>
             </button>
           </Tippy>

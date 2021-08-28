@@ -11,6 +11,7 @@ import fetcher from 'libs/fetcher';
 import { ProjectCard } from 'components/Projects/ProjectCard';
 import Skeleton from 'react-loading-skeleton';
 import { Project } from '@prisma/client';
+import { ProjectCardSkeleton } from 'components/Projects/ProjectCardSkeleton';
 
 function DashboardIndex() {
   const [visible, setVisible] = useAtom(createProjectVisibleAtom);
@@ -35,14 +36,13 @@ function DashboardIndex() {
             })}
 
           {!projects && (
-            <Card hoverable>
-              <Typography.Title level={4}>
-                <Skeleton></Skeleton>
-              </Typography.Title>
-              <Typography.Text className='text-sm dark:text-gray-300 text-gray-600'>
-                <Skeleton></Skeleton>
-              </Typography.Text>
-            </Card>
+            <>
+              <ProjectCardSkeleton />
+              <ProjectCardSkeleton />
+              <ProjectCardSkeleton />
+              <ProjectCardSkeleton />
+              <ProjectCardSkeleton />
+            </>
           )}
 
           {/* @ts-ignore */}

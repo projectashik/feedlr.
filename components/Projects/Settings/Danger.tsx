@@ -34,7 +34,7 @@ export const DangerSettingsComponent = ({ project }: Props) => {
       toast.success('Settings updated');
     } else {
       console.log(res);
-      setEnabled(!enabled);
+      setEnabled(false);
       toast.error('Something went wrong');
     }
   }

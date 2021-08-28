@@ -9,6 +9,7 @@ import useSWR from 'swr';
 import { Input, Modal, Typography, Button, Card } from 'components/ui';
 import { UrlsSettingsComponent } from 'components/Projects/Settings/Urls';
 import { Project } from '@prisma/client';
+import { ProjectSettingsComponent } from 'components/Projects/Settings/Project';
 
 function SettingsPage() {
   const router = useRouter();
@@ -21,6 +22,7 @@ function SettingsPage() {
 
   return (
     <ProjectLayout id={id}>
+      <ProjectSettingsComponent project={project} />
       <UXSettingsComponent project={project} />
       <UISettingsComponent project={project} />
       <UrlsSettingsComponent project={project} />

@@ -67,7 +67,7 @@ export const UISettingsComponent = ({ project }: any) => {
                   <Input
                     icon='#'
                     placeholder='Color Hex Code'
-                    label='Button Color'
+                    label='Button Bg Color'
                     value={lightModeButtonColor}
                     onChange={(e) => {
                       setLightModeButtonColor(e.target.value);
@@ -99,7 +99,7 @@ export const UISettingsComponent = ({ project }: any) => {
                   <Input
                     icon='#'
                     placeholder='Color Hex Code'
-                    label='Button Color'
+                    label='Button Bg Color'
                     value={darkModeButtonColor}
                     onChange={(e) => {
                       setDarkModeButtonColor(e.target.value);

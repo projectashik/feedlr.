@@ -77,62 +77,6 @@ export const UXSettingsComponent = ({ project }: { project: any }) => {
       </Typography.Title>
       <Card className='mt-4'>
         <form onSubmit={onSubmit}>
-          <div className='flex gap-4'>
-            <div className='flex-1'>
-              <Typography.Text strong>Feedback Type</Typography.Text>
-              <div className='flex gap-4 mt-4'>
-                <button
-                  type='button'
-                  onClick={() => setFeedbackType('emoji')}
-                  className={
-                    'border-2 flex dark:border-gray-650 flex-col items-center  focus:border-brand-300 p-2 rounded justify-end ' +
-                    (feedbackType === 'emoji'
-                      ? ' border-brand-400 dark:border-brand-400 justify-between'
-                      : '')
-                  }
-                >
-                  {feedbackType === 'emoji' && (
-                    <p className='text-center font-bold mb-2 text-brand-600'>
-                      Current
-                    </p>
-                  )}
-                  <Image
-                    src='/fd-types/emoji.png'
-                    width={200}
-                    height={145}
-                    alt='Emoji'
-                  />
-                </button>
-                <button
-                  type='button'
-                  disabled
-                  onClick={() => setFeedbackType('category')}
-                  className={
-                    'border-2 dark:border-gray-650 flex flex-col items-center  focus:border-brand-300 p-2 rounded justify-end ' +
-                    (feedbackType === 'category'
-                      ? ' border-brand-400 dark:border-brand-400 justify-between'
-                      : '')
-                  }
-                >
-                  {feedbackType === 'category' && (
-                    <p className='text-center font-bold mb-2 text-brand-600'>
-                      Current
-                    </p>
-                  )}
-                  <p className='text-center font-bold mb-2 text-brand-600'>
-                    Being built
-                  </p>
-                  <Image
-                    src='/fd-types/category.png'
-                    width={200}
-                    height={145}
-                    alt='category'
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-          <Divider light className='my-4' />
           <div className='grid grid-cols-2 gap-4'>
             <div>
               <Typography.Text strong>Question?</Typography.Text>

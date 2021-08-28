@@ -2,9 +2,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Emoji } from './Emoji';
 
-function EmojiSelect({ onSelect }: any) {
+function EmojiSelect({ selectedEmoji, setSelectedEmoji }: any) {
   const emojis = ['disappointed', 'hate', 'natural', 'good', 'excellent'];
-  const [selectedEmoji, setSelectedEmoji] = useState('');
   return (
     <div className='flex justify-between mt-4'>
       {emojis.map((emoji) => {
@@ -12,7 +11,6 @@ function EmojiSelect({ onSelect }: any) {
           <Emoji
             onClick={() => {
               setSelectedEmoji(emoji);
-              onSelect(emoji);
             }}
             key={emoji}
             selected={selectedEmoji === emoji}

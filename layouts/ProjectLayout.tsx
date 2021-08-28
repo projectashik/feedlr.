@@ -123,25 +123,14 @@ export const ProjectLayout = ({ children, id }: any) => {
                 Installations
               </Button>
             </li>
-            <li>
-              <Button
-                type={
-                  router.pathname === '/project/[id]/integration'
-                    ? 'primary'
-                    : 'default'
-                }
-              >
-                Integration
-              </Button>
-            </li>
           </ul>
         </nav>
 
-        <div className='flex items-center gap-4'>
+        {/* <div className='flex items-center gap-4'>
           <Button icon={<FiEye />} tooltip='Preview Widget' />
-        </div>
+        </div> */}
       </div>
-      <WaitingForData project={project} />
+      {/* <WaitingForData project={project} /> */}
       <div className='main-content mt-5'>{children}</div>
     </AuthLayout>
   );
