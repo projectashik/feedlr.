@@ -10,11 +10,7 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap'
             rel='stylesheet'
           />
-          <script
-            defer
-            src='./init.js'
-            data-feedlr-project-id='3f44c855-1e52-404d-989b-1a2c6fe705f8'
-          ></script>
+          <script defer src='./init.js'></script>
           <meta property='og:title' content='Feedlr.' />
           <meta
             property='og:description'
