@@ -23,17 +23,17 @@
 }
 
 .feedlr-widget-toggler {
-  position: fixed !important;
-  background: var(--feedlr-primary-color) !important;
+  position: fixed;
+  background: var(--feedlr-primary-color);
   color: white;
-  right: var(--feedlr-position-right) !important;
-  bottom: var(--feedlr-position-bottom) !important;
-  /* border: 1px solid !important; */
+  right: var(--feedlr-position-right);
+  bottom: var(--feedlr-position-bottom);
+  /* border: 1px solid; */
   border: none;
-  padding: 15px 15px !important;
-  border-radius: 2px !important;
-  z-index: 1000 !important;
-  transform: scale(1) !important;
+  padding: 15px 15px;
+  border-radius: 2px;
+  z-index: 1000;
+  transform: scale(1);
   font-family: var(--feedlr-font-family);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px;
   cursor: pointer;
@@ -41,10 +41,10 @@
 }
 
 .feedlr-widget.widget-fixed {
-  position: fixed !important;
-  right: var(--feedlr-position-right) !important;
-  bottom: calc(var(--feedlr-position-bottom) + 55px) !important;
-  z-index: 100000000 !important;
+  position: fixed;
+  right: var(--feedlr-position-right);
+  bottom: calc(var(--feedlr-position-bottom) + 55px);
+  z-index: 100000000;
   box-shadow: rgb(13 12 34 / 10%) -6px 0px 30px;
 }
 
@@ -52,10 +52,10 @@
   transform: scaleY(0);
   transform-origin: bottom;
   overflow-y: hidden;
-  flex-direction: column !important;
-  background: var(--feedlr-widget-bg) !important;
-  border-radius: 6px !important;
-  padding: 15px 20px !important;
+  flex-direction: column;
+  background: var(--feedlr-widget-bg);
+  border-radius: 6px;
+  padding: 15px 20px;
   font-size: var(--feedlr-font-size);
   transition: transform 0.5s, height 10s;
 }
@@ -68,7 +68,7 @@
 }
 
 .feedlr-form {
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 10px;
@@ -98,7 +98,7 @@
 }
 
 .feedlr-emoji-button {
-  opacity: 0.6 !important;
+  opacity: 0.6;
   transform: scale(1);
   transition: transform 0.5s;
   outline: none;
@@ -108,7 +108,7 @@
 }
 
 .feedlr-selected-emoji {
-  opacity: 1 !important;
+  opacity: 1;
   transform: scale(1.2);
 }
 

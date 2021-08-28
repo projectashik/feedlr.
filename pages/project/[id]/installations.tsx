@@ -10,6 +10,7 @@ export default function InstallationSettingsPage() {
   const { data: project, error: projectError } = useSWR<Project>(
     `/api/projects/get?id=${id}`
   );
+  if (!project) return 'Loading...';
 
   return (
     <>

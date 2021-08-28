@@ -1,5 +1,5 @@
-// const base_url = 'http://localhost:3000';
-const base_url = 'https://feedlr.vercel.app';
+const base_url = 'http://localhost:3000';
+// const base_url = 'https://feedlr.vercel.app';
 const css_url = base_url + '/widget.css';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -8,6 +8,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const rightOffset = script?.getAttribute('data-position-right');
   const bottomOffset = script?.getAttribute('data-position-bottom');
   const mode = script?.getAttribute('data-mode');
+  const togglerStyle = script?.getAttribute('data-toggler-style');
+  const inputStyle = script?.getAttribute('data-input-style');
+  const submitStyle = script?.getAttribute('data-button-style');
+
   const emojis = ['hate', 'disappointed', 'natural', 'good', 'excellent'];
   let selectedEmoji = '';
   const container = document.createElement('div');
@@ -58,6 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const button = document.createElement('button');
     button.classList.add('feedlr-widget-toggler');
     button.innerText = 'Feedback';
+    button.style = togglerStyle;
     container.appendChild(button);
   };
 
@@ -115,15 +120,18 @@ window.addEventListener('DOMContentLoaded', () => {
     email_input.type = 'email';
     email_input.classList.add('feedlr-email_input');
     email_input.placeholder = 'Enter your email (Optional)';
+    email_input.style = inputStyle;
 
     const feedback_input = document.createElement('textarea');
     feedback_input.required = true;
     feedback_input.classList.add('feedlr-feedback_input');
     feedback_input.placeholder = 'Your feedback';
+    feedback_input.style = inputStyle;
 
     const submit_button = document.createElement('button');
     submit_button.innerText = 'Submit Feedback';
     submit_button.classList.add('feedlr-feedback_submit');
+    submit_button.style = submitStyle;
 
     feedback_form.appendChild(email_input);
     feedback_form.appendChild(feedback_input);
