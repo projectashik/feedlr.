@@ -55,7 +55,7 @@ export default function InstallationSettingsPage() {
               Add the following options to script tag to use.
             </Typography.Text>
             <table className='table-auto divide-y divide-gray-200 min-w-full mt-4'>
-              <thead className='bg-gray-50'>
+              <thead className='bg-gray-50 dark:bg-gray-600'>
                 <tr>
                   <th className='text-left'>Option</th>
                   <th className='text-left'>Default</th>

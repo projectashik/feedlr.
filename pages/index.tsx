@@ -7,7 +7,17 @@ import { Button, Input } from 'components/ui';
 import router from 'next/router';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { FiHeart } from 'react-icons/fi';
+import {
+  FiCode,
+  FiFilter,
+  FiGithub,
+  FiHeart,
+  FiMoon,
+  FiPhone,
+  FiSmile,
+  FiTwitter,
+} from 'react-icons/fi';
+import { BiCustomize, BiDevices } from 'react-icons/bi';
 
 export default function Home() {
   const { user } = useUser();
@@ -65,7 +75,7 @@ export default function Home() {
                         </Link>
                       </li>
                       <li>
-                        <Link href='/api/auth/signup'>
+                        <Link href='/api/auth/login'>
                           <a className='px-4 text-white bg-brand-500 rounded py-2 hover:bg-brand-600'>
                             Register
                           </a>
@@ -119,7 +129,7 @@ export default function Home() {
       </div>
       <section
         id='features'
-        className='container mx-auto md:px-8 px-4 my-4 bg-white'
+        className='container mx-auto md:px-8 px-4 my-10 bg-white'
       >
         <div className='flex justify-center'>
           <h2 className='text-center text-white px-4 text-2xl highlight'>
@@ -132,10 +142,10 @@ export default function Home() {
               <span
                 className={
                   styles.gradient +
-                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                  ' flex items-center justify-center w-14 rounded text-white font-bold text-3xl'
                 }
               >
-                1
+                <FiCode />
               </span>
               <div className='flex flex-col justify-center'>
                 <p className='font-bold text-xl'>Easy to integrate</p>
@@ -146,10 +156,10 @@ export default function Home() {
               <span
                 className={
                   styles.gradient +
-                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                  ' flex items-center justify-center w-14 rounded text-white font-bold text-3xl'
                 }
               >
-                2
+                <FiSmile />
               </span>
               <div className='flex flex-col justify-center'>
                 <p className='font-bold text-xl'>Five reactions</p>
@@ -164,10 +174,10 @@ export default function Home() {
               <span
                 className={
                   styles.gradient +
-                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                  ' flex items-center justify-center w-14 rounded text-white font-bold text-3xl'
                 }
               >
-                3
+                <FiMoon />
               </span>
               <div className='flex flex-col justify-center'>
                 <p className='font-bold text-xl'>Dark Mode</p>
@@ -178,10 +188,10 @@ export default function Home() {
               <span
                 className={
                   styles.gradient +
-                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                  ' flex items-center justify-center w-14 rounded text-white font-bold text-3xl'
                 }
               >
-                4
+                <BiDevices />
               </span>
               <div className='flex flex-col justify-center'>
                 <p className='font-bold text-xl'>Device, OS and Browser</p>
@@ -197,10 +207,10 @@ export default function Home() {
               <span
                 className={
                   styles.gradient +
-                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                  ' flex items-center justify-center w-14 rounded text-white font-bold text-3xl'
                 }
               >
-                5
+                <BiCustomize />
               </span>
               <div className='flex flex-col justify-center'>
                 <p className='font-bold text-xl'>Easy to customize</p>
@@ -214,10 +224,10 @@ export default function Home() {
               <span
                 className={
                   styles.gradient +
-                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                  ' flex items-center justify-center w-14 rounded text-white font-bold text-3xl'
                 }
               >
-                6
+                <FiFilter />
               </span>
               <div className='flex flex-col justify-center'>
                 <p className='font-bold text-xl'>Filter feedbacks</p>
@@ -232,15 +242,27 @@ export default function Home() {
       </section>
       <footer
         className={
-          styles.gradient +
-          ' py-3 text-center text-white flex items-center justify-center'
+          styles.gradient + ' py-3 text-center text-white flex justify-between'
         }
       >
-        Made with{' '}
-        <div className='px-1'>
-          <FiHeart />
-        </div>{' '}
-        by <a href='https://github.com/projectashik'> Ashik Chapagain</a>
+        <div className='container mx-auto flex md:flex-row flex-col gap-5 md:px-8 px-4 justify-between'>
+          <div className='flex items-center'>
+            Made with{' '}
+            <div className='px-1'>
+              <FiHeart />
+            </div>{' '}
+            by &nbsp;
+            <a href='https://github.com/projectashik'>Ashik Chapagain</a>
+          </div>
+          <div className='flex gap-4 items-center'>
+            <a href='https://github.com/projectashik/feedlr.'>
+              <FiGithub />
+            </a>
+            <a href='https://twitter.com/ChapagainAshik/'>
+              <FiTwitter />
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
