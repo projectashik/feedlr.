@@ -1,51 +1,79 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/dist/frontend';
 import { ProjectLayout } from 'layouts';
-import {
-  Card,
-  Typography,
-  Button,
-  Modal,
-  Input,
-  Divider,
-  Radio,
-  Badge,
-} from 'components/ui';
-import { FiClock, FiFilter } from 'react-icons/fi';
-import { useState } from 'react';
-import { EmojiSelect } from 'components';
-import { MdComputer } from 'react-icons/md';
-import Tippy from '@tippyjs/react';
-import Image from 'next/image';
+import { Typography, Button, Input } from 'components/ui';
+import { FiFilter } from 'react-icons/fi';
+import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/router';
 import { ResponseCard } from 'components/Projects/ResponseCard';
 import useSWR from 'swr';
 import fetcher from 'libs/fetcher';
-import { Response } from '@prisma/client';
 import { FilterResponseModal } from 'components/Projects/FilterResponseModal';
 import { useEffect } from 'react';
-import Skeleton from 'react-loading-skeleton';
 import { ResponseCardSkeleton } from 'components/Projects/ResponseCardSkeleton';
-import { ResponseSearch } from 'components/Projects/ResponseSearch';
+import Fuse from 'fuse.js';
 
 function ProjectIndexPage() {
   const router = useRouter();
   const { id } = router.query;
   const [filterModalVisible, setFilterModalVisible] = useState(false);
-  const [responses, setResponses] = useState([]);
+  const [responses, setResponses] = useState<any[]>([]);
+  const [defaultResponses, setDefaultResponses] = useState<any[]>([]);
+  const [feedbackSearch, setFeedbackSearch] = useState('');
+  const [urlSearch, setUrlSearch] = useState('');
 
   function toggleFilterModal() {
     setFilterModalVisible(!filterModalVisible);
   }
 
-  let { data: fetchedResonses, error: projectsError } = useSWR(
+  let { data: fetchedResponses, error: projectsError } = useSWR(
     `/api/responses/getAll?projectId=${id}`,
     fetcher
   );
   useEffect(() => {
-    setResponses(fetchedResonses);
-  }, [fetchedResonses]);
+    setResponses(fetchedResponses);
+    setDefaultResponses(fetchedResponses);
+  }, [fetchedResponses]);
+
   const onFilter = (filteredResponse: any) => {
     setResponses(filteredResponse);
+  };
+
+  const checkName = (name: string, str: string) => {
+    var pattern = str
+      .toLowerCase()
+      .split('')
+      .map((x) => {
+        return `(?=.*${x})`;
+      })
+      .join('');
+    var regex = new RegExp(`${pattern}`, 'g');
+    return name.toLowerCase().match(regex);
+  };
+
+  const onFeedbackSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    const fResponses = responses;
+
+    setFeedbackSearch(e.target.value);
+    if (e.target.value.length > 0) {
+      const searchedResponses = defaultResponses.filter((res) => {
+        return checkName(res.feedback, e.target.value);
+      });
+      setResponses(searchedResponses);
+    } else {
+      setResponses(defaultResponses);
+    }
+  };
+
+  const onUrlSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setUrlSearch(e.target.value);
+    if (e.target.value.length > 0) {
+      const searchedResponses = defaultResponses.filter((res) => {
+        return checkName(res.url, e.target.value);
+      });
+      setResponses(searchedResponses);
+    } else {
+      setResponses(defaultResponses);
+    }
   };
 
   return (
@@ -62,12 +90,32 @@ function ProjectIndexPage() {
           </Button>
         </div>
       </div>
-      <ResponseSearch />
+      <div className='grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 md:gap-10 mt-4'>
+        <Input
+          value={feedbackSearch}
+          onChange={onFeedbackSearch}
+          placeholder='Search By Feedback'
+          className='mb-10 md:mb-0'
+        />
+        <Input
+          value={urlSearch}
+          onChange={onUrlSearch}
+          placeholder='Search By URL'
+          className='mb-10 md:mb-0'
+        />
+      </div>
       <div className='flex flex-col gap-4 mt-4'>
         {responses ? (
-          responses.map((response: any) => (
-            <ResponseCard key={response.id} response={response}></ResponseCard>
-          ))
+          responses.length > 0 ? (
+            responses.map((response: any) => (
+              <ResponseCard
+                key={response.id || response.item.id}
+                response={response.item || response}
+              ></ResponseCard>
+            ))
+          ) : (
+            <Typography.Text>No Responses Found</Typography.Text>
+          )
         ) : (
           <>
             <ResponseCardSkeleton />
@@ -82,7 +130,7 @@ function ProjectIndexPage() {
       <FilterResponseModal
         filterModalVisible={filterModalVisible}
         toggleFilterModal={toggleFilterModal}
-        responses={fetchedResonses}
+        responses={fetchedResponses}
         onFilter={onFilter}
       ></FilterResponseModal>
     </ProjectLayout>

@@ -16,7 +16,7 @@ export default function Home() {
     setLoaded(true);
   }, []);
   return (
-    <>
+    <div className='bg-white'>
       <div className={styles.gradient}>
         <Head>
           <title>
@@ -256,6 +256,6 @@ export default function Home() {
         </div>{' '}
         by <a href='https://github.com/projectashik'> Ashik Chapagain</a>
       </footer>
-    </>
+    </div>
   );
 }
