@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import { FiHeart } from 'react-icons/fi';
 
 export default function Home() {
-  const user = useUser();
+  const { user } = useUser();
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     setLoaded(true);
@@ -49,22 +49,7 @@ export default function Home() {
                       Github
                     </a>
                   </li>
-                  {!user ? (
-                    <>
-                      <li>
-                        <Link href='/'>
-                          <a className='text-white'>Login</a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href='/'>
-                          <a className='px-4 text-white bg-brand-500 rounded py-2 hover:bg-brand-600'>
-                            Register
-                          </a>
-                        </Link>
-                      </li>
-                    </>
-                  ) : (
+                  {user ? (
                     <li>
                       <Link href='/dashboard'>
                         <a className='px-4 text-white bg-brand-500 rounded py-2 hover:bg-brand-600'>
@@ -72,6 +57,21 @@ export default function Home() {
                         </a>
                       </Link>
                     </li>
+                  ) : (
+                    <>
+                      <li>
+                        <Link href='/api/auth/login'>
+                          <a className='text-white'>Login</a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href='/api/auth/signup'>
+                          <a className='px-4 text-white bg-brand-500 rounded py-2 hover:bg-brand-600'>
+                            Register
+                          </a>
+                        </Link>
+                      </li>
+                    </>
                   )}
                 </ul>
               </nav>
@@ -89,21 +89,21 @@ export default function Home() {
                 </span>
                 <br /> for your project
               </h1>
-              {!user ? (
-                <Button
-                  onClick={() => router.push('/api/auth/login')}
-                  type='primary'
-                  className='text-lg bg-brand-800 mt-4'
-                >
-                  Register Now
-                </Button>
-              ) : (
+              {user ? (
                 <Button
                   onClick={() => router.push('/dashboard')}
                   type='primary'
                   className='text-lg bg-brand-800 mt-4'
                 >
                   Dashboard
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => router.push('/api/auth/login')}
+                  type='primary'
+                  className='text-lg bg-brand-800 mt-4'
+                >
+                  Register Now
                 </Button>
               )}
             </div>
