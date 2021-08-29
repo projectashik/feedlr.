@@ -16,7 +16,7 @@ export default function Home() {
     setLoaded(true);
   }, []);
   return (
-    <div className='bg-white'>
+    <div className='bg-white text-black'>
       <div className={styles.gradient}>
         <Head>
           <title>
