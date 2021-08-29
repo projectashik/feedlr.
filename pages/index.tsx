@@ -128,118 +128,104 @@ export default function Home() {
         </div>
         <div className='mt-8'>
           <div className='grid md:grid-cols-2 gap-4'>
-            <div className='grid grid-rows-2'>
-              <div className='flex gap-4'>
-                <span
-                  className={
-                    styles.gradient +
-                    ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
-                  }
-                >
-                  1
-                </span>
-                <div className='flex flex-col justify-center'>
-                  <p className='font-bold text-xl'>Easy to integrate</p>
-                  <p>
-                    Just add the script tag provided by feedlr. in head tag.
-                  </p>
-                </div>
+            <div className='flex gap-4'>
+              <span
+                className={
+                  styles.gradient +
+                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                }
+              >
+                1
+              </span>
+              <div className='flex flex-col justify-center'>
+                <p className='font-bold text-xl'>Easy to integrate</p>
+                <p>Just add the script tag provided by feedlr. in head tag.</p>
               </div>
-
-              {loaded && (
-                <Input
-                  disabled
-                  className='mt-3'
-                  inputClass='py-3 dark:bg-gray-800 shadow-lg'
-                  copy
-                  value={`<script src="${window.location.origin}/init.js"></script>`}
-                />
-              )}
             </div>
-            <div className='grid grid-rows-2'>
-              <div className='flex gap-4 '>
-                <span
-                  className={
-                    styles.gradient +
-                    ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
-                  }
-                >
-                  2
-                </span>
-                <div className='flex flex-col justify-center'>
-                  <p className='font-bold text-xl'>Five reactions</p>
-                  <p>
-                    Your visitors can give feedback from five different
-                    reactions
-                  </p>
-                </div>
+            <div className='flex gap-4 '>
+              <span
+                className={
+                  styles.gradient +
+                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                }
+              >
+                2
+              </span>
+              <div className='flex flex-col justify-center'>
+                <p className='font-bold text-xl'>Five reactions</p>
+                <p>
+                  Your visitors can give feedback from five different reactions
+                </p>
               </div>
-
-              {loaded && (
-                <Image
-                  src='/images/emojis.png'
-                  height='30'
-                  width='100'
-                  alt='Five reactions'
-                  unoptimized={true}
-                />
-              )}
             </div>
           </div>
           <div className='grid md:grid-cols-2 gap-4 mt-8'>
-            <div className='grid gap-4'>
-              <div className='flex gap-4'>
-                <span
-                  className={
-                    styles.gradient +
-                    ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
-                  }
-                >
-                  3
-                </span>
-                <div className='flex flex-col justify-center'>
-                  <p className='font-bold text-xl'>Dark Mode</p>
-                  <p>Feedlr. Widget is also available with dark mode</p>
-                </div>
+            <div className='flex gap-4'>
+              <span
+                className={
+                  styles.gradient +
+                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                }
+              >
+                3
+              </span>
+              <div className='flex flex-col justify-center'>
+                <p className='font-bold text-xl'>Dark Mode</p>
+                <p>Feedlr. Widget is also available with dark mode</p>
               </div>
-
-              {loaded && (
-                <Image
-                  src='/images/darkwidget.png'
-                  width='453'
-                  height='541'
-                  alt='Dark Mode'
-                  unoptimized={true}
-                />
-              )}
             </div>
-            <div className='grid gap-4'>
-              <div className='flex gap-4'>
-                <span
-                  className={
-                    styles.gradient +
-                    ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
-                  }
-                >
-                  4
-                </span>
-                <div className='flex flex-col justify-center'>
-                  <p className='font-bold text-xl'>Device, OS and Browser</p>
-                  <p>
-                    Know, from which device, os and browser the feedback was
-                    submitted
-                  </p>
-                </div>
+            <div className='flex gap-4'>
+              <span
+                className={
+                  styles.gradient +
+                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                }
+              >
+                4
+              </span>
+              <div className='flex flex-col justify-center'>
+                <p className='font-bold text-xl'>Device, OS and Browser</p>
+                <p>
+                  Know, from which device, os and browser the feedback was
+                  submitted
+                </p>
               </div>
-              {loaded && (
-                <Image
-                  src='/images/device.png'
-                  width='453'
-                  height='541'
-                  alt='Dark Mode'
-                  unoptimized={true}
-                />
-              )}
+            </div>
+          </div>
+          <div className='grid md:grid-cols-2 gap-4 mt-8'>
+            <div className='flex gap-4'>
+              <span
+                className={
+                  styles.gradient +
+                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                }
+              >
+                5
+              </span>
+              <div className='flex flex-col justify-center'>
+                <p className='font-bold text-xl'>Easy to customize</p>
+                <p>
+                  You can easily customize the look the widget as your website
+                  looks
+                </p>
+              </div>
+            </div>
+            <div className='flex gap-4'>
+              <span
+                className={
+                  styles.gradient +
+                  ' px-6 py-4 block w-14 rounded text-white font-bold text-3xl'
+                }
+              >
+                6
+              </span>
+              <div className='flex flex-col justify-center'>
+                <p className='font-bold text-xl'>Filter feedbacks</p>
+                <p>
+                  Filter the feedbacks by date range, reactions, device,
+                  browsers and os
+                </p>
+              </div>
             </div>
           </div>
         </div>
