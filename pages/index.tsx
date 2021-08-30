@@ -17,7 +17,12 @@ import {
   FiSmile,
   FiTwitter,
 } from 'react-icons/fi';
-import { BiCustomize, BiDevices } from 'react-icons/bi';
+import {
+  BiCustomize,
+  BiDevices,
+  BiLinkExternal,
+  BiMobile,
+} from 'react-icons/bi';
 
 export default function Home() {
   const { user } = useUser();
@@ -235,6 +240,39 @@ export default function Home() {
                   Filter the feedbacks by date range, reactions, device,
                   browsers and os
                 </p>
+              </div>
+            </div>
+          </div>
+          <div className='grid md:grid-cols-2 gap-4 mt-8'>
+            <div className='flex gap-4'>
+              <span
+                className={
+                  styles.gradient +
+                  ' flex items-center justify-center w-14 rounded text-white font-bold text-3xl'
+                }
+              >
+                <BiLinkExternal />
+              </span>
+              <div className='flex flex-col justify-center'>
+                <p className='font-bold text-xl'>Create own form</p>
+                <p>
+                  Beside using the widget, you can create your own form and send
+                  request to Feedlr Api.
+                </p>
+              </div>
+            </div>
+            <div className='flex gap-4'>
+              <span
+                className={
+                  styles.gradient +
+                  ' flex items-center justify-center w-14 rounded text-white font-bold text-3xl'
+                }
+              >
+                <BiMobile />
+              </span>
+              <div className='flex flex-col justify-center'>
+                <p className='font-bold text-xl'>Flutter and React Native</p>
+                <p>You can create a add feedlr. to flutter and react native</p>
               </div>
             </div>
           </div>
