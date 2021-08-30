@@ -12,7 +12,7 @@ export default async function createResponse(
     const response = await prisma.response.create({
       data: {
         email,
-        url: req.headers.from,
+        url: req.headers.origin,
         feedback,
         ua,
         projectId,
