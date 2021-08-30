@@ -16,15 +16,6 @@ export default function InstallationSettingsPage() {
     <>
       <ProjectLayout id={id}>
         <div className='my-4'>
-          <Typography.Text>
-            See our docs for complete guide for flutter, react native and custom
-            form{' '}
-            <a href='https://docs-feedlr.vercel.app' className='text-brand-800'>
-              Here
-            </a>
-          </Typography.Text>
-        </div>
-        <div className='my-4'>
           <Input
             disabled
             inputClass='py-3 dark:bg-gray-800'
