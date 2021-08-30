@@ -10,7 +10,7 @@ export const ProjectCard = ({ project }: { project: any }) => {
       <a>
         <Card hoverable>
           <Typography.Title level={4}>
-            {project.name} ({project.url})
+            {project.name} {project.url ? `(${project.url})` : ''}
           </Typography.Title>
           <Typography.Text className='text-sm dark:text-gray-300 text-gray-600'>
             Created At: {project.createdAt}

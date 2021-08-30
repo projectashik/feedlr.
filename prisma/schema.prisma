@@ -13,7 +13,7 @@ generator client {
 model Project {
   id        String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   name      String @db.VarChar()
-  url       String @db.VarChar() @unique
+  url       String? @db.VarChar() @unique
   userId    String @db.VarChar
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   setting   Setting?
@@ -22,13 +22,13 @@ model Project {
 
 model Response {
   id        String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  url       String @db.VarChar()
+  url       String? @db.VarChar()
   email     String? @db.VarChar()
   ua        String @db.VarChar()
   feedback  String @db.VarChar()
   project   Project @relation(fields: [projectId], references: [id])
   projectId String @db.Uuid
-  emoji String @db.VarChar()
+  emoji String? @db.VarChar()
   createdAt DateTime @default(now()) @db.Timestamptz(6)
 }
 

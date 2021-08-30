@@ -77,11 +77,14 @@ export const ProjectLayout = ({ children, id }: any) => {
           <Menu></Menu>
           {project ? (
             <Typography.Text>
-              {project.name} (
-              <a href={'https://' + project.url} rel='noreferer'>
-                {project.url}
-              </a>
-              )
+              {project.name}
+              {project.url ? (
+                <a href={'https://' + project.url} rel='noreferer'>
+                  {project.url}
+                </a>
+              ) : (
+                ''
+              )}
             </Typography.Text>
           ) : (
             <Skeleton width={60} height={15} />

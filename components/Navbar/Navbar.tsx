@@ -62,13 +62,6 @@ export const Navbar = () => {
           >
             Profile
           </Dropdown.Item>,
-          <Dropdown.Item
-            key={Math.random()}
-            onClick={logout}
-            icon={<FiSettings />}
-          >
-            Settings
-          </Dropdown.Item>,
           <Divider key={Math.random()} light />,
           <Dropdown.Item
             key={Math.random()}

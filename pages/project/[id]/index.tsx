@@ -10,7 +10,6 @@ import fetcher from 'libs/fetcher';
 import { FilterResponseModal } from 'components/Projects/FilterResponseModal';
 import { useEffect } from 'react';
 import { ResponseCardSkeleton } from 'components/Projects/ResponseCardSkeleton';
-import Fuse from 'fuse.js';
 
 function ProjectIndexPage() {
   const router = useRouter();

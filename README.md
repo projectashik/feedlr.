@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Image](./public/images/ogImage.png)
+
+# Feedlr.
+
+Feedlr. is the best tool for gathering consumer feedback. It includes a widget that allows consumers to submit feedback with or without an email address and without requiring a login. After your consumers give feedback, you may access the Feedlr. dashboard to view the feedback, the device information from which it was submitted, the time it was submitted, and the URL from which it was sent. Additionally, you may filter feedback by date range, reaction, operating system, browser, and device, as well as search for responses based on feedback and URL.
+
+> Check out article about feedlr. on [hashnode](https://cb-ashik.hashnode.dev/feedlr)
 
 ## Getting Started
 

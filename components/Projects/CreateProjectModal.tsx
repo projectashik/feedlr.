@@ -28,20 +28,12 @@ export const CreateProjectModal = ({ visible, onCancel }: Props) => {
       setNameError('Project name field is required.');
       setLoading(false);
     }
-    if (!url) {
-      setUrlError('Project url field is required');
-      setLoading(false);
-    }
-
-    if (nameError || urlError) {
-      setLoading(false);
-      return false;
-    }
-
-    if (!url.match(urlRegex)) {
-      setUrlError('Invalid URL format');
-      setLoading(false);
-      return false;
+    if (url) {
+      if (!url.match(urlRegex)) {
+        setUrlError('Invalid URL format');
+        setLoading(false);
+        return false;
+      }
     }
 
     const createReq = await axios.post('/api/projects/create', {
@@ -85,7 +77,7 @@ export const CreateProjectModal = ({ visible, onCancel }: Props) => {
           error={urlError}
           type='url'
           onChange={(e) => setUrl(e.target.value)}
-          label='Project URL'
+          label='Project URL (Mandatory for Web Projects only)'
           placeholder='Enter Project url'
           icon='https://'
           inputClass='pl-20'

@@ -15,162 +15,238 @@ export default function InstallationSettingsPage() {
   return (
     <>
       <ProjectLayout id={id}>
-        Installations
-        <Card className='mt-2'>
-          <p>
-            <Typography.Text strong>For Production</Typography.Text>
-          </p>
+        <div className='my-4'>
           <Typography.Text>
-            Add the following script to your head tag. Then Feedlr. will show
-            widget to your site
+            See our docs for complete guide for flutter, react native and custom
+            form{' '}
+            <a href='https://docs-feedlr.vercel.app' className='text-brand-800'>
+              Here
+            </a>
           </Typography.Text>
+        </div>
+        <div className='my-4'>
           <Input
             disabled
-            className='mt-3 '
             inputClass='py-3 dark:bg-gray-800'
             copy
-            value={`<script src="${window.location.origin}/init.js"></script>`}
+            value={project && project.id}
+            label='Your Project Id'
           />
-        </Card>
-        <Card className='mt-2'>
-          <p>
-            <Typography.Text strong>For localhost</Typography.Text>
-          </p>
-          <Typography.Text>
-            Add the following script to your head tag. Then Feedlr. will show
-            widget to your site
-          </Typography.Text>
-          <Input
-            disabled
-            className='mt-3 '
-            inputClass='py-3 dark:bg-gray-800'
-            copy
-            value={`<script src="${window.location.origin}/init.js" data-feedlr-project-id="${project?.id}"></script>`}
-          />
-        </Card>
-        <div className='mt-4'>
-          <Typography.Text>Options</Typography.Text>
-          <Card>
+        </div>
+        <div>
+          Installations (Guide for Web Projects)
+          <Card className='mt-2'>
+            <p>
+              <Typography.Text strong>For Production</Typography.Text>
+            </p>
             <Typography.Text>
-              Add the following options to script tag to use.
+              Add the following script to your head tag. Then Feedlr. will show
+              widget to your site
             </Typography.Text>
-            <table className='table-auto divide-y divide-gray-200 min-w-full mt-4'>
-              <thead className='bg-gray-50 dark:bg-gray-600'>
-                <tr>
-                  <th className='text-left'>Option</th>
-                  <th className='text-left'>Default</th>
-                  <th className='text-left'>Description</th>
-                  <th className='text-left'>Usage</th>
-                </tr>
-              </thead>
-              <tbody className='divide-y divide-gray-200'>
-                <tr>
-                  <td>
-                    <code>data-position-right</code>
-                  </td>
-                  <td>10</td>
-                  <td>How much you want to move widget from right.</td>
-                  <td className='overflow-hidden'>
-                    <code>
-                      <pre className='w-64 overflow-x-auto'>
-                        &lt;script data-position-right=&apos;20&apos; src=&apos;
-                        {window.location.origin}
-                        /init.js&apos;&gt;&lt;/script&gt;
-                      </pre>
-                    </code>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <code>data-position-bottom</code>
-                  </td>
-                  <td>10</td>
-                  <td>How much you want to move widget from bottom.</td>
-                  <td className='overflow-hidden'>
-                    <code>
-                      <pre className='w-64 overflow-x-auto'>
-                        &lt;script data-position-bottom=&apos;20&apos;
-                        src=&apos;
-                        {window.location.origin}
-                        /init.js&apos;&gt;&lt;/script&gt;
-                      </pre>
-                    </code>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <code>data-input-style</code>
-                  </td>
-                  <td>-</td>
-                  <td>Change the default style of email and feedback field.</td>
-                  <td className='overflow-hidden'>
-                    <code>
-                      <pre className='w-64 overflow-x-auto'>
-                        &lt;script
-                        data-input-styele=&apos;border-radius:10%&apos;
-                        src=&apos;
-                        {window.location.origin}
-                        /init.js&apos;&gt;&lt;/script&gt;
-                      </pre>
-                    </code>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <code>data-toggler-style</code>
-                  </td>
-                  <td>-</td>
-                  <td>Override the default style of toggler button.</td>
-                  <td className='overflow-hidden'>
-                    <code>
-                      <pre className='w-64 overflow-x-auto'>
-                        &lt;script data-position-right=&apos;20&apos; src=&apos;
-                        {window.location.origin}
-                        /init.js&apos;&gt;&lt;/script&gt;
-                      </pre>
-                    </code>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <code>data-mode</code>
-                  </td>
-                  <td>-</td>
-                  <td>Enable Dark Mode In the widget</td>
-                  <td className='overflow-hidden'>
-                    <code>
-                      <pre className='w-64 overflow-x-auto'>
-                        &lt;script data-mode=&apos;dark&apos; src=&apos;
-                        {window.location.origin}
-                        /init.js&apos;&gt;&lt;/script&gt;
-                      </pre>
-                    </code>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <code>data-submit-style</code>
-                  </td>
-                  <td>-</td>
-                  <td>Change the look of submit button as you want</td>
-                  <td className='overflow-hidden'>
-                    <code>
-                      <pre className='w-64 overflow-x-auto'>
-                        &lt;script
-                        data-submit-style=&apos;border-radius:50%;&apos;
-                        src=&apos;
-                        {window.location.origin}
-                        /init.js&apos;&gt;&lt;/script&gt;
-                      </pre>
-                    </code>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <Input
+              disabled
+              className='mt-3 '
+              inputClass='py-3 dark:bg-gray-800'
+              copy
+              value={`<script src="${window.location.origin}/init.js"></script>`}
+            />
           </Card>
+          <Card className='mt-2'>
+            <p>
+              <Typography.Text strong>For localhost</Typography.Text>
+            </p>
+            <Typography.Text>
+              Add the following script to your head tag. Then Feedlr. will show
+              widget to your site
+            </Typography.Text>
+            <Input
+              disabled
+              className='mt-3 '
+              inputClass='py-3 dark:bg-gray-800'
+              copy
+              value={`<script src="${window.location.origin}/init.js" data-feedlr-project-id="${project?.id}"></script>`}
+            />
+          </Card>
+          <div className='mt-4'>
+            <Typography.Text>Options</Typography.Text>
+            <Card>
+              <Typography.Text>
+                Add the following options to script tag to use.
+              </Typography.Text>
+              <table className='table-auto divide-y divide-gray-200 min-w-full mt-4'>
+                <thead className='bg-gray-50 dark:bg-gray-600'>
+                  <tr>
+                    <th className='text-left'>Option</th>
+                    <th className='text-left'>Default</th>
+                    <th className='text-left'>Description</th>
+                    <th className='text-left'>Usage</th>
+                  </tr>
+                </thead>
+                <tbody className='divide-y divide-gray-200'>
+                  <tr>
+                    <td>
+                      <code>data-position-right</code>
+                    </td>
+                    <td>10</td>
+                    <td>How much you want to move widget from right.</td>
+                    <td className='overflow-hidden'>
+                      <code>
+                        <pre className='w-64 overflow-x-auto'>
+                          &lt;script data-position-right=&apos;20&apos;
+                          src=&apos;
+                          {window.location.origin}
+                          /init.js&apos;&gt;&lt;/script&gt;
+                        </pre>
+                      </code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>data-position-bottom</code>
+                    </td>
+                    <td>10</td>
+                    <td>How much you want to move widget from bottom.</td>
+                    <td className='overflow-hidden'>
+                      <code>
+                        <pre className='w-64 overflow-x-auto'>
+                          &lt;script data-position-bottom=&apos;20&apos;
+                          src=&apos;
+                          {window.location.origin}
+                          /init.js&apos;&gt;&lt;/script&gt;
+                        </pre>
+                      </code>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <code>data-input-style</code>
+                    </td>
+                    <td>-</td>
+                    <td>
+                      Change the default style of email and feedback field.
+                    </td>
+                    <td className='overflow-hidden'>
+                      <code>
+                        <pre className='w-64 overflow-x-auto'>
+                          &lt;script
+                          data-input-styele=&apos;border-radius:10%&apos;
+                          src=&apos;
+                          {window.location.origin}
+                          /init.js&apos;&gt;&lt;/script&gt;
+                        </pre>
+                      </code>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <code>data-toggler-style</code>
+                    </td>
+                    <td>-</td>
+                    <td>Override the default style of toggler button.</td>
+                    <td className='overflow-hidden'>
+                      <code>
+                        <pre className='w-64 overflow-x-auto'>
+                          &lt;script data-position-right=&apos;20&apos;
+                          src=&apos;
+                          {window.location.origin}
+                          /init.js&apos;&gt;&lt;/script&gt;
+                        </pre>
+                      </code>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <code>data-mode</code>
+                    </td>
+                    <td>-</td>
+                    <td>Enable Dark Mode In the widget</td>
+                    <td className='overflow-hidden'>
+                      <code>
+                        <pre className='w-64 overflow-x-auto'>
+                          &lt;script data-mode=&apos;dark&apos; src=&apos;
+                          {window.location.origin}
+                          /init.js&apos;&gt;&lt;/script&gt;
+                        </pre>
+                      </code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>data-submit-style</code>
+                    </td>
+                    <td>-</td>
+                    <td>Change the look of submit button as you want</td>
+                    <td className='overflow-hidden'>
+                      <code>
+                        <pre className='w-64 overflow-x-auto'>
+                          &lt;script
+                          data-submit-style=&apos;border-radius:50%;&apos;
+                          src=&apos;
+                          {window.location.origin}
+                          /init.js&apos;&gt;&lt;/script&gt;
+                        </pre>
+                      </code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </Card>
+          </div>
+          <hr />
+          <div className='mt-5'>
+            <Typography.Text>QuickStart for React Native</Typography.Text>
+            <Input.TextArea
+              disabled
+              rows={15}
+              className='mt-3 '
+              value={`
+              const makeRequest = async () => {
+                let request = await axios({
+                  method: "post",
+                  url: "https://feedlr.vercel.app/api/responses",
+                  data: {
+                    email,
+                    feedback,
+                    emoji,
+                    projectId: ${project.id}
+                  },
+                });
+                if (request.data.success) {
+                  alert("reponse saved");
+                } else {
+                  alert("some error have occured");
+                }
+              };
+              `}
+            />
+          </div>
+          <div className='mt-5'>
+            <Typography.Text>QuickStart for Flutter</Typography.Text>
+            <Input.TextArea
+              disabled
+              rows={15}
+              className='mt-3 '
+              value={`
+              Future<http.Response> createAlbum(String title) {
+                return http.post(
+                  Uri.parse('https://feedlr.vercel.app/api/responses'),
+                  headers: <String, String>{
+                    'Content-Type': 'application/json; charset=UTF-8',
+                  },
+                  body: jsonEncode(<String, String>{
+                    'email': email,
+                    'feedback': feedback,
+                    'emoji': emoji,
+                    'projectId': ${project.id}
+                  }),
+                );
+              }
+              `}
+            />
+          </div>
         </div>
       </ProjectLayout>
     </>

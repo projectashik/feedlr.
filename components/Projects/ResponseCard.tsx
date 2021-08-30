@@ -27,28 +27,32 @@ export const ResponseCard = ({ response }: { response: Response }) => {
     <>
       <Card hoverable className='relative card flex flex-col gap-4'>
         <div className='flex gap-4'>
-          <div>
-            <Tippy content={response.emoji}>
-              <button>
-                <Image
-                  src={'/widget/emojis/' + response.emoji + '.gif'}
-                  width={40}
-                  height={40}
-                  alt='Emoji'
-                />
-              </button>
-            </Tippy>
-          </div>
+          {response && response.emoji && (
+            <div>
+              <Tippy content={response.emoji}>
+                <button>
+                  <Image
+                    src={'/widget/emojis/' + response.emoji + '.gif'}
+                    width={40}
+                    height={40}
+                    alt='Emoji'
+                  />
+                </button>
+              </Tippy>
+            </div>
+          )}
           <div className='flex flex-col'>
-            <Typography.Text strong className='uppercase text-sm'>
-              From{' '}
-              <Typography.Link
-                href={response ? response.url : '/dashboard'}
-                className='normal-case font-normal'
-              >
-                {response.url}
-              </Typography.Link>
-            </Typography.Text>
+            {response && response.url && (
+              <Typography.Text strong className='uppercase text-sm'>
+                From{' '}
+                <Typography.Link
+                  href={response ? response.url : '/dashboard'}
+                  className='normal-case font-normal'
+                >
+                  {response.url}
+                </Typography.Link>
+              </Typography.Text>
+            )}
             <Typography.Text>{response.feedback}</Typography.Text>
           </div>
         </div>
